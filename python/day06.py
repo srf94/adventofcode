@@ -1,5 +1,5 @@
 
-with open('input/day06.txt', 'r') as f:
+with open('../input/day06.txt', 'r') as f:
 	data = f.read()
 
 data = [int(i) for i in data.split()]

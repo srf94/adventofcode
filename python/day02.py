@@ -1,6 +1,6 @@
 import itertools
 
-with open('input/day2.txt', 'r') as f:
+with open('../input/day02.txt', 'r') as f:
 	data = f.read()
 
 # Remove \t and \n from input and remove empty rows
