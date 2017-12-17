@@ -48,4 +48,4 @@ P = list(string.ascii_lowercase[:N])
 for _ in range(n_dances):
 	P = dance(P=P)
 
-print "Part 1: %s" % "".join(P)
+print "Part 2: %s" % "".join(P)
