@@ -4,8 +4,7 @@ from intcode_vm import run_instructions
 import numpy as np
 
 
-raw = read_data(11)
-raw = [int(i) for i in raw[0].split(",")]
+raw = read_data(11)[0].split(",")
 
 
 def paint_spaceship(panel_colours):

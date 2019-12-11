@@ -70,6 +70,7 @@ def run_instructions(data, debug=False):
     pointer = 0
     relative_base = 0
     program_output = "No output given!"
+    data = [int(i) for i in data]
 
     while True:
         assert pointer >= 0
