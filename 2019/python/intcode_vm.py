@@ -1,3 +1,6 @@
+from collections import deque
+
+
 def extended_read(data, value):
     assert value >= 0
     try:
@@ -175,3 +178,10 @@ def run_instructions(data, debug=False):
             raise Exception("Unexpected instruction at {}: {}".format(pointer, opcode))
 
     yield program_output, True
+
+
+def intcode_send(gen, input_value):
+    next(gen)
+    output, terminate = gen.send(deque([input_value]))
+    assert not terminate
+    return output
