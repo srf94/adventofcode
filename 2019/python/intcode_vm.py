@@ -180,8 +180,13 @@ def run_instructions(data, debug=False):
     yield program_output, True
 
 
-def intcode_send(gen, input_value):
+def intcode_send(gen, *input_values):
+    input_deque = deque()
+    for v in input_values:
+        input_deque.append(v)
+
     next(gen)
-    output, terminate = gen.send(deque([input_value]))
-    assert not terminate
+    output, terminate = gen.send(input_deque)
+    if terminate:
+        raise StopIteration
     return output

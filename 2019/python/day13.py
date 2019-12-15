@@ -1,7 +1,6 @@
 from copy import copy
-from collections import deque
 from utils import read_data
-from intcode_vm import run_instructions
+from intcode_vm import run_instructions, intcode_send
 
 
 def draw_board(tiles):
@@ -27,14 +26,11 @@ def print_tuple(x, y, tile):
     print("{}: x: {}, y: {}".format(name, x, y))
 
 
-def single_step(input_value, gen):
+def single_step(value, gen):
     triple = []
-    input_data = deque([input_value])
     for i in range(3):
-        next(gen)
-        output, terminate = gen.send(input_data)
-        triple.append(output)
-        input_data = deque([output])
+        value = intcode_send(gen, value)
+        triple.append(value)
     return tuple(triple)
 
 

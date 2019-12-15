@@ -1,7 +1,7 @@
-from collections import deque
-from utils import read_data
-from intcode_vm import run_instructions
 import numpy as np
+from utils import read_data
+from collections import deque
+from intcode_vm import run_instructions, intcode_send
 
 
 raw = read_data(11)[0].split(",")
@@ -18,13 +18,13 @@ def paint_spaceship(panel_colours):
         # 0 is black, 1 is white
         intcode_input = panel_colours.get(tuple(location), 0)
 
-        next(gen)
-        colour, terminate = gen.send(deque([intcode_input]))
-        panel_colours[tuple(location)] = colour
-        if terminate:
+        try:
+            colour = intcode_send(gen, intcode_input)
+        except StopIteration:
             break
-        next(gen)
-        rotation, terminate = gen.send(deque([]))
+        panel_colours[tuple(location)] = colour
+
+        rotation = intcode_send(gen)
         if rotation == 0:
             direction = left_rotation.dot(direction)
         else:
