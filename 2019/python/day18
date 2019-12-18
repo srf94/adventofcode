@@ -1,5 +1,46 @@
 from copy import copy
-from utils import read_data
+
+
+# from utils import read_data
+# raw = read_data(18)
+
+raw_1 = '''#########
+#b.A.@.a#
+#########'''.splitlines()
+
+raw_2 = '''########################
+#f.D.E.e.C.b.A.@.a.B.c.#
+######################.#
+#d.....................#
+########################'''.splitlines()
+
+raw_3 = '''########################
+#...............b.C.D.f#
+#.######################
+#.....@.a.B.c.d.A.e.F.g#
+########################'''.splitlines()
+
+raw_4 = '''#################
+#i.G..c...e..H.p#
+########.########
+#j.A..b...f..D.o#
+########@########
+#k.E..a...g..B.n#
+########.########
+#l.F..d...h..C.m#
+#################'''.splitlines()
+
+raw_5 = '''########################
+#@..............ac.GI.b#
+###d#e#f################
+###A#B#C################
+###g#h#i################
+########################'''.splitlines()
+
+
+# Debugging
+print_saved = print
+# print = lambda *a, **k: None
 
 
 def add_direction(loc, d):
@@ -21,115 +62,121 @@ def get_reverse(d):
     return d + 2 % 4
 
 
-def explore(loc, direction, crossable, seen, target_keys, steps, path_taken):
+def explore(loc, crossable, target_keys, steps, path_taken, seen_grid, seen_keys, main=False):
     inner_steps = 0
     success_branches = []
+    new_key = False
     while True:
-        # TODO: Need to separate the logic out better.
-        # Step one: Pick next move(s). If multiple moves create multiple branches
-        # Step two: Make the move
-        # Step three: Update dicts etc
-
         print("")
+        print("main: {}, success_branches: {}".format(main, success_branches))
+        grid_copy = [copy(row) for row in grid]
+        grid_copy[loc[1]][loc[0]] = "~"
+        print("\n".join("".join(str(i) for i in row) for row in grid_copy))
         print("loc: {}".format(loc))
-        print("direction: {}".format(direction))
         print("crossable: {}".format(crossable))
-        print("seen: {}".format(seen))
         print("target_keys: {}".format(target_keys))
         print("steps: {}".format(steps))
+        print("path_taken: {}".format(path_taken))
+        print("seen_grid: {}".format(sorted(seen_grid.items())))
+        print("seen_keys: {}".format(seen_keys))
 
+        # If we have been here before, with the same number of seen_keys, this is a bad branch
+        value = seen_grid.get(loc)
+        if value == len(seen_keys):
+            print("EXITING BRANCH at loc: {}".format(loc))
+            print("\n".join("" for _ in range(10)))
+            return False, success_branches
+
+        seen_grid[loc] = len(seen_keys)
+
+        if seen_keys == target_keys:
+            success_branches.append(steps)
+            print("success_branches: {}".format(success_branches))
+            print("Using: {}".format(min(success_branches)))
+            return True, success_branches
+
+        # STEP 1
         # Consider all four options
         possible = [add_direction(loc, d) for d in range(4)]
 
         # Remove impossible moves
-        possible = [i for i in possible if grid_dict[i] != "#"]
+        possible = [i for i in possible if grid_dict[i] in crossable]
 
-        if len(possible) > 1:
-            status = {i: seen.get(i) for i in possible} 
-            # If multiple unseen, start new searches
-            unseen = [k for k, v in status if v is None]
-            if len(unseen) > 1:
-                # BRANCH
-                pass
-            if len(unseen) > 0:
-                # NEW LOC
-                pass
-            else:
-                # TODO: Reverse
-                path_taken[-1]
-
-
-
-        seen[loc] = len(crossable)
-        # Travel from loc (old position) in direction of d
-        new = add_direction(loc, direction)
-        print("seen (updated): {}".format(seen))
-        print("new: {}".format(new))
-
-        # Do cell
-        try:
-            value = grid_dict[new]
-        except:
-            value = "#"
-        if value == "#":
-            return False, None
-
-        if value in crossable:
-            print("Moving from {} to {}".format(loc, new))
-            loc = new
-        elif value.isalpha():
-            if value == value.lower():
-                print("Landed on {}".format(value))
-                crossable.add(value)
-                crossable.add(value.upper())
-                # branch
-            elif value == value.upper():
-                print("Landed on {}".format(value))
-                # branch
-            else:
-                raise Exception("Weird...")
-            loc = new
+        value = grid_dict.get(loc)
+        if value and value.isalpha() and value == value.lower() and new_key:
+            unseen = possible
         else:
-            # TODO
-            raise Exception("Tried to walk into wall")
+            # If multiple unseen, start new searches
+            status = {i: seen_grid.get(i, -1) for i in possible}
+            best = min(status.values())
+            unseen = [k for k, v in status.items() if v == best]
 
-        prev_value = seen.get(loc)
-        if prev_value is not None:
-            if prev_value >= len(crossable):
-                return False, None
+        print("possible: {}".format(possible))
+        print("status: {}".format(status))
+        print("unseen: {}".format(unseen))
 
-        inner_steps += 1
-        steps += 1
-
-        if not target_keys - crossable:
-            return True, steps
-
-        # Get possible new directions based on surroundings
-        possible = [d for d in set(range(4)) - {get_reverse(direction)} if grid_dict[add_direction(loc, d)] != "#"]
-
-        for new_dir in possible[1:]:
-            print("NEW BRANCH: {}".format(loc))
-            import pdb
-            pdb.set_trace()
+        for new in reversed(unseen[1:]):
+            print("NEW BRANCH")
+            print("Next move: {}".format(new))
+            new_path_taken = copy(path_taken)
+            if len(new_path_taken) > 1 and new_path_taken[-2] == new:
+                new_path_taken.pop()
+            else:
+                new_path_taken.append(new)
             success, steps_taken = explore(
-                loc, new_dir, copy(crossable), copy(seen), copy(target_keys), copy(steps)
+                new, copy(crossable), copy(target_keys), steps + 1,
+                new_path_taken, copy(seen_grid), copy(seen_keys)
             )
             if success:
-                success_branches.append(steps_taken)
+                print("Branch success: {}, steps: {}".format(success, steps_taken))
+            else:
+                print("Branch failure")
+            if steps_taken:
+                success_branches.append(min(steps_taken))
 
-        try:
-            new_dir = possible[0]
-        except IndexError:
-            new_dir = get_reverse(direction)
-        direction = new_dir
+        # STEP 2
+        if len(unseen) > 0:
+            # NEW LOC
+            new = unseen[0]
+            if len(path_taken) > 1 and path_taken[-2] == new:
+                path_taken.pop()
+            else:
+                path_taken.append(new)
+            print("Moving from {} to {}".format(loc, new))
+        else:
+            # TODO: Reverse
+            path_taken.pop()
+            new = path_taken[-1]
+            print("Reversing from {} to {}".format(loc, new))
 
+        assert new == path_taken[-1]
 
-raw = read_data(18)
+        # STEP 3
+        new_key = False
+        value = grid_dict[new]
+        if value.isalpha():
+            if value == value.lower():
+                print("Landed on {}".format(value))
+                crossable.add(value.upper())
+                seen_keys.add(value)
+                new_key = True
+            elif value == value.upper():
+                print("Landed on {}".format(value))
+            else:
+                raise Exception("Weird...")
 
-raw_1 = '''#########
-#b.A.@.a#
-#########'''.splitlines()
-raw = raw_1
+        loc = new
+        steps += 1
+
+        # if steps > 30:
+        #     import pdb
+        #     pdb.set_trace()
+
+raw = raw_1  # works (8)
+# raw = raw_2  # should be 86
+# raw = raw_3  # should be 132
+# raw = raw_4  # should be 136
+raw = raw_5  # should be 81
 
 grid = [list(row) for row in raw]
 grid_dict = {(x, y): value for (y, row) in enumerate(grid) for (x, value) in enumerate(row)}
@@ -149,12 +196,14 @@ start = start[0]
 
 print("\n".join("".join(str(i) for i in row) for row in grid))
 
-crossable_ = {".", "@"}
-seen_ = {start: len(crossable_)}
 target_keys_ = {v for v in grid_dict.values() if v.isalpha() and v.lower() == v}
+target_doors_ = {v for v in grid_dict.values() if v.isalpha() and v.upper() == v}
+crossable_ = {".", "@"}
+crossable_.update(target_keys_)
+print("crossable: {}".format(crossable_))
 path_taken_ = [start]
-
-result = explore(start, 1, crossable_, seen_, target_keys_, 0, path_taken_)
-
-import pdb
-pdb.set_trace()
+seen_grid_ = {}
+seen_keys_ = set()
+result = explore(start, crossable_, target_keys_, 0, path_taken_, seen_grid_, seen_keys_, main=True)
+print_saved(result)
+print_saved(min(result[1]))
