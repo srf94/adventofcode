@@ -67,7 +67,6 @@ def write(data, pointer, increment, new_value, debug, mode, relative_base):
         data[write_loc] = new_value
 
 
-
 def run_instructions(data, debug=False):
     data_input = yield
     pointer = 0
@@ -92,11 +91,8 @@ def run_instructions(data, debug=False):
         if opcode in [1, 2]:
             val_1 = read(data, pointer, 1, mode_A, relative_base, debug)
             val_2 = read(data, pointer, 2, mode_B, relative_base, debug)
-
-            if opcode == 1:
-                write(data, pointer, 3, val_1 + val_2, debug, mode_C, relative_base)
-            else:
-                write(data, pointer, 3, val_1 * val_2, debug, mode_C, relative_base)
+            val = val_1 + val_2 if opcode == 1 else val_1 * val_2
+            write(data, pointer, 3, val, debug, mode_C, relative_base)
             pointer += 4
 
         elif opcode == 3:
@@ -190,3 +186,40 @@ def intcode_send(gen, *input_values):
     if terminate:
         raise StopIteration
     return output
+
+
+class IntcodeVM(object):
+    def __init__(self, D, mutate_input=None):
+        self.D = [int(i) for i in D]
+        self.pointer = 0
+
+        if mutate_input is not None:
+            for k, v in mutate_input.items():
+                self.D[k] = v
+
+    def get_args(self):
+        opcode = self.D[self.pointer]
+        if opcode in [1, 2]:
+            i1, i2, i3 = self.D[self.pointer+1: self.pointer+4]
+        else:
+            i1, i2, i3 = None, None, None
+        return opcode, i1, i2, i3
+
+    def run(self):
+        while True:
+            opcode, i1, i2, i3 = self.get_args()
+
+            if opcode == 1:
+                v1 = self.D[i1]
+                v2 = self.D[i2]
+                self.D[i3] = v1 + v2
+                self.pointer += 4
+            elif opcode == 2:
+                v1 = self.D[i1]
+                v2 = self.D[i2]
+                self.D[i3] = v1 * v2
+                self.pointer += 4
+            elif opcode == 99:
+                return
+            else:
+                raise Exception("Unexpected op code: {}".format(opcode))
