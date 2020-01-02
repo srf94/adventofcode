@@ -1,4 +1,5 @@
 from utils import read_data
+from intcode_vm import IntcodeVM
 
 
 raw = read_data(5)
@@ -88,8 +89,19 @@ def run_instructions(raw_data, data_input):
             raise Exception("Unexpected instruction at {}: {}".format(pointer, opcode))
 
 
+# Original solution
 print("Part 1:")
 run_instructions(raw, 1)
 
+
 print("Part 2:")
 run_instructions(raw, 5)
+
+
+# Later solved using full intcode VM
+print("Part 1 (using full intcode vm):")
+print(IntcodeVM(raw, input_=1).collect_all_outputs()[-1])
+
+
+print("Part 2 (using full intcode vm):")
+print(IntcodeVM(raw, input_=5).collect_all_outputs()[-1])

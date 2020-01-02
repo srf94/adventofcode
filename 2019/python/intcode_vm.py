@@ -38,7 +38,6 @@ def read(data, pointer, increment, mode, relative_base, debug):
     return value
 
 
-
 def write(data, pointer, increment, new_value, debug, mode, relative_base):
     loc = pointer + increment
     assert loc >= 0
@@ -46,12 +45,17 @@ def write(data, pointer, increment, new_value, debug, mode, relative_base):
 
     if mode == 2:
         if debug:
-            print("Writing in mode 2, changing pointer from {} to {}".format(write_loc, write_loc + relative_base))
+            print(
+                "Writing in mode 2, changing pointer from {} to {}".format(
+                    write_loc, write_loc + relative_base
+                )
+            )
         write_loc = write_loc + relative_base
 
     if mode == 1:
         print("Mode 1 when writing!")
         import pdb
+
         pdb.set_trace()
 
     old_value = extended_read(data, write_loc)
@@ -62,8 +66,9 @@ def write(data, pointer, increment, new_value, debug, mode, relative_base):
     except IndexError:
         if write_loc > 100000:
             import pdb
+
             pdb.set_trace()
-        data.extend([0 for _ in range(len(data), write_loc+1)])
+        data.extend([0 for _ in range(len(data), write_loc + 1)])
         data[write_loc] = new_value
 
 
@@ -85,8 +90,8 @@ def run_instructions(data, debug=False):
 
         if debug:
             print()
-            print('New opcode: {}, pointer {}'.format(instruction, pointer))
-            print(data[pointer: pointer+6])
+            print("New opcode: {}, pointer {}".format(instruction, pointer))
+            print(data[pointer : pointer + 6])
 
         if opcode in [1, 2]:
             val_1 = read(data, pointer, 1, mode_A, relative_base, debug)
@@ -161,7 +166,9 @@ def run_instructions(data, debug=False):
         elif opcode == 9:
             value = read(data, pointer, 1, mode_A, relative_base, debug)
             if debug:
-                print("Relative base changed: {} -> {}".format(relative_base, relative_base+value))
+                print(
+                    "Relative base changed: {} -> {}".format(relative_base, relative_base + value)
+                )
             relative_base += value
             pointer += 2
 
@@ -189,37 +196,96 @@ def intcode_send(gen, *input_values):
 
 
 class IntcodeVM(object):
-    def __init__(self, D, mutate_input=None):
+    def __init__(self, D, input_=None, mutate_input=None):
         self.D = [int(i) for i in D]
         self.pointer = 0
+        self.input = input_
 
         if mutate_input is not None:
             for k, v in mutate_input.items():
                 self.D[k] = v
 
-    def get_args(self):
-        opcode = self.D[self.pointer]
-        if opcode in [1, 2]:
-            i1, i2, i3 = self.D[self.pointer+1: self.pointer+4]
-        else:
-            i1, i2, i3 = None, None, None
-        return opcode, i1, i2, i3
+        self.args = None
+        self.modes = None
+
+    def read(self, loc):
+        try:
+            value = self.args[loc]
+        except IndexError:
+            value = 0
+
+        if self.modes[loc] == 0:
+            return self.D[value]
+        return value
+
+    def write(self, loc, value):
+        self.D[self.args[loc]] = value
+
+    def get_opcode(self):
+        i = self.D[self.pointer]
+        opcode = i % 100
+        self.modes = [
+            (i // 100) % 10,
+            (i // 1000) % 10,
+            (i // 1000) % 10,
+        ]
+        self.args = self.D[self.pointer + 1 : self.pointer + 4]
+        return opcode
 
     def run(self):
         while True:
-            opcode, i1, i2, i3 = self.get_args()
+            opcode = self.get_opcode()
 
             if opcode == 1:
-                v1 = self.D[i1]
-                v2 = self.D[i2]
-                self.D[i3] = v1 + v2
+                self.write(2, self.read(0) + self.read(1))
                 self.pointer += 4
+
             elif opcode == 2:
-                v1 = self.D[i1]
-                v2 = self.D[i2]
-                self.D[i3] = v1 * v2
+                self.write(2, self.read(0) * self.read(1))
                 self.pointer += 4
+
+            elif opcode == 3:
+                self.write(0, self.input)
+                self.pointer += 2
+
+            elif opcode == 4:
+                value = self.read(0)
+                self.pointer += 2
+                return value
+
+            elif opcode == 5:
+                value = self.read(0)
+                if value != 0:
+                    self.pointer = self.read(1)
+                else:
+                    self.pointer += 3
+
+            elif opcode == 6:
+                value = self.read(0)
+                if value == 0:
+                    self.pointer = self.read(1)
+                else:
+                    self.pointer += 3
+
+            elif opcode == 7:
+                self.write(2, 1 if self.read(0) < self.read(1) else 0)
+                self.pointer += 4
+
+            elif opcode == 8:
+                self.write(2, 1 if self.read(0) == self.read(1) else 0)
+                self.pointer += 4
+
             elif opcode == 99:
                 return
+
             else:
                 raise Exception("Unexpected op code: {}".format(opcode))
+
+    def collect_all_outputs(self):
+        outputs = []
+        while True:
+            out = self.run()
+            if out is None:
+                break
+            outputs.append(out)
+        return outputs
