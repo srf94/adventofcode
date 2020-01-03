@@ -1,22 +1,24 @@
-from itertools import combinations
 from utils import read_data
-from intcode_vm import run_instructions, intcode_send
+from collections import deque
+from itertools import combinations
+from intcode_vm import IntcodeVM
 
 
-raw = read_data(25)[0].split(',')
-gen = run_instructions(raw, debug=False)
+raw = read_data(25)[0].split(",")
+vm = IntcodeVM(raw)
 
 
 def cc(word):
-    command = 'Command?\n'
+    command = "Command?\n"
     output = ""
-    aa = [ord(i) for i in word + '\n']
+    word_ord = deque(ord(i) for i in word + "\n")
     while True:
-        try:
-            res = intcode_send(gen, *aa)
-        except:
+        res = vm.run(word_ord)
+        if res is None:
+            print("Part 1:")
             print(output)
             break
+
         res = chr(res)
         output += res
 
@@ -25,41 +27,41 @@ def cc(word):
     return output
 
 
-cc('inv')
-cc('south')
-cc('take boulder')
-cc('east')
-cc('take food ration')
-cc('west')
-cc('west')
-cc('take asterisk')
-cc('east')
-cc('north')
-cc('east')
-cc('take candy cane')
-cc('north')
-cc('east')
-cc('north')
-cc('take mug')
-cc('south')
-cc('west')
-cc('north')
-cc('take mutex')
-cc('north')
-cc('take prime number')
-cc('south')
-cc('south')
-cc('south')
-cc('east')
-cc('north')
-cc('take loom')
-cc('south')
-cc('east')
-cc('south')
-cc('east')
-cc('east')
-cc('north')
-cc('inv')
+cc("inv")
+cc("south")
+cc("take boulder")
+cc("east")
+cc("take food ration")
+cc("west")
+cc("west")
+cc("take asterisk")
+cc("east")
+cc("north")
+cc("east")
+cc("take candy cane")
+cc("north")
+cc("east")
+cc("north")
+cc("take mug")
+cc("south")
+cc("west")
+cc("north")
+cc("take mutex")
+cc("north")
+cc("take prime number")
+cc("south")
+cc("south")
+cc("south")
+cc("east")
+cc("north")
+cc("take loom")
+cc("south")
+cc("east")
+cc("south")
+cc("east")
+cc("east")
+cc("north")
+cc("inv")
 
 
 items = [
@@ -80,10 +82,10 @@ for l in range(1, 9):
         break
     for i_list in combinations(items, l):
         for ii in i_list:
-            cc('drop {}'.format(ii))
-        out = cc('north')
-        if 'Alert!' not in out:
+            cc("drop {}".format(ii))
+        out = cc("north")
+        if "Alert!" not in out:
             finished = True
             break
         for ii in i_list:
-            cc('take {}'.format(ii))
+            cc("take {}".format(ii))
