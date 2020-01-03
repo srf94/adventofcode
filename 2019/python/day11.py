@@ -1,7 +1,6 @@
 import numpy as np
 from utils import read_data
-from collections import deque
-from intcode_vm import run_instructions, intcode_send
+from intcode_vm import IntcodeVM
 
 
 raw = read_data(11)[0].split(",")
@@ -12,19 +11,19 @@ def paint_spaceship(panel_colours):
 
     direction = np.array([0, 1])
     location = np.array([0, 0])
-    gen = run_instructions(raw, debug=False)
+    vm = IntcodeVM(raw)
 
     while True:
         # 0 is black, 1 is white
         intcode_input = panel_colours.get(tuple(location), 0)
 
-        try:
-            colour = intcode_send(gen, intcode_input)
-        except StopIteration:
+        colour = vm.run(intcode_input)
+        if colour is None:
             break
+
         panel_colours[tuple(location)] = colour
 
-        rotation = intcode_send(gen)
+        rotation = vm.run()
         if rotation == 0:
             direction = left_rotation.dot(direction)
         else:
@@ -46,9 +45,9 @@ shifted_colours = {(x + min_x, y + min_y): v for (x, y), v in colours.items()}
 
 max_x = abs(max(x for x, y in shifted_colours))
 max_y = abs(max(y for x, y in shifted_colours))
-array = [[' '] * (max_x+1) for _ in range(max_y+1)]
+array = [[" "] * (max_x + 1) for _ in range(max_y + 1)]
 for (x, y), v in shifted_colours.items():
-    array[y][x] = '0' if v else ' '
+    array[y][x] = "0" if v else " "
 
 
 print("Part 2:")
