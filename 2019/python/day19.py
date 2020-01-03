@@ -1,13 +1,14 @@
 from utils import read_data
 from itertools import product
-from intcode_vm import run_instructions, intcode_send
+from collections import deque
+from intcode_vm import IntcodeVM
 
 
 raw = read_data(19)[0].split(",")
 
 
 def read_square(location):
-    return intcode_send(run_instructions(raw, debug=False), *location)
+    return IntcodeVM(raw, input_=deque(location)).run()
 
 
 print("Part 1:")
@@ -34,7 +35,7 @@ while True:
                 print("Top left corner: {}".format(top_left))
 
             print("Part 2:")
-            print("Score: {}".format(top_left[0] * 10000 + top_left[1]))
+            print(top_left[0] * 10000 + top_left[1])
             break
 
         loc = (loc[0] + 1, loc[1])
