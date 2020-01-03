@@ -1,20 +1,18 @@
 from utils import read_data
-from intcode_vm import run_instructions, intcode_send
+from intcode_vm import IntcodeVM
 
 
 def draw_grid(g):
     x_dim = [min(i for i, _ in grid), max(i for i, _ in grid)]
     y_dim = [min(j for _, j in grid), max(j for _, j in grid)]
 
-    square = [
-        [' '] * (1 + x_dim[1] - x_dim[0]) for _ in range(1 + y_dim[1] - y_dim[0])
-    ]
+    square = [[" "] * (1 + x_dim[1] - x_dim[0]) for _ in range(1 + y_dim[1] - y_dim[0])]
 
     for (x, y), v in g.items():
-        char = 'O' if v == 2 else ("." if v == 0 else " ")
+        char = "O" if v == 2 else ("." if v == 0 else " ")
         square[y - y_dim[0]][x - x_dim[0]] = char
 
-    square[-y_dim[0]][-x_dim[0]] = 'S'
+    square[-y_dim[0]][-x_dim[0]] = "S"
 
     print("\n".join("".join(str(i) for i in row) for row in reversed(square)))
 
@@ -33,7 +31,7 @@ def get_reverse(d):
 
 
 raw = read_data(15)[0].split(",")
-gen = run_instructions(raw, debug=False)
+vm = IntcodeVM(raw)
 
 
 oxygen_location = None
@@ -58,11 +56,11 @@ while True:
         # Reverse back one step
         location = path[-2][0]
         direction = path[-1][1]
-        intcode_send(gen, get_reverse(direction))
+        vm.run(get_reverse(direction))
         path.pop()
         continue
 
-    output = intcode_send(gen, direction)
+    output = vm.run(direction)
     grid[new] = output
 
     if output in [1, 2]:
