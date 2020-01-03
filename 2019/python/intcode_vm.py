@@ -203,14 +203,15 @@ def intcode_send(gen, *input_values):
     return output
 
 
-sentinel = object()
-
-
 class IntcodeVM(object):
-    def __init__(self, D, input_=None, mutate_input=None):
+    def __init__(
+        self, D, input_=None, mutate_input=None, max_timeout=None, default_input=None
+    ):
         self.D = {loc: int(i) for loc, i in enumerate(D)}
         self.pointer = 0
         self.relative_base = 0
+        self.max_timeout = max_timeout
+        self.default_input = default_input
 
         if input_ is None:
             self.input = deque()
@@ -231,7 +232,11 @@ class IntcodeVM(object):
 
     def get_input(self):
         if isinstance(self.input, deque):
-            return self.input.popleft()
+            try:
+                return self.input.popleft()
+            except:
+                return self.default_input
+
         return self.input
 
     def prep_instruction(self):
@@ -266,11 +271,16 @@ class IntcodeVM(object):
             raise Exception("Tried to write in mode 1!")
         self.D[self.args[loc] + self.relative_base] = value
 
-    def run(self, input_=sentinel):
-        if input_ != sentinel:
+    def run(self, input_=None):
+        if input_ is not None:
             self.input = input_
 
+        counter = 0
         while True:
+            counter += 1
+            if self.max_timeout is not None and self.max_timeout < counter:
+                return None
+
             opcode = self.prep_instruction()
 
             if opcode == 1:
