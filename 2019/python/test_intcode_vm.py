@@ -14,7 +14,7 @@ from intcode_vm import IntcodeVM
 def test_day_2_examples(program, expected):
     vm = IntcodeVM(program)
     vm.run()
-    assert vm.D == expected
+    assert vm.D_list == expected
 
 
 def test_day_5_examples():
@@ -29,7 +29,7 @@ def test_day_5_examples():
     expected = [1002, 4, 3, 4, 99]
     vm = IntcodeVM(program)
     vm.run()
-    assert vm.D == expected
+    assert vm.D_list == expected
 
     program = [104, 1, 4, 2, 104, 3, 99]
     result = IntcodeVM(program, input_=1).collect_all_outputs()
@@ -69,9 +69,9 @@ def test_day_5_examples():
 
     # fmt: off
     program = [
-        3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31,
-        1106,0,36,98,0,0,1002,21,125,20,4,20,1105,1,46,104,
-        999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99,
+        3, 21, 1008, 21, 8, 20, 1005, 20, 22, 107, 8, 21, 20, 1006, 20, 31,
+        1106, 0, 36, 98, 0, 0, 1002, 21, 125, 20, 4, 20, 1105, 1, 46, 104,
+        999, 1105, 1, 46, 1101, 1000, 1, 20, 4, 20, 1105, 1, 46, 98, 99,
     ]
     # fmt: on
     vm = IntcodeVM(program, input_=5)
@@ -83,3 +83,20 @@ def test_day_5_examples():
     vm = IntcodeVM(program, input_=10)
     result = vm.run()
     assert result == 1001
+
+
+def test_day_9_examples():
+    program = [109, 1, 204, -1, 1001, 100, 1, 100, 1008, 100, 16, 101, 1006, 101, 0, 99]
+    vm = IntcodeVM(program)
+    result = vm.collect_all_outputs()
+    assert result == program
+
+    program = [1102, 34915192, 34915192, 7, 4, 7, 99, 0]
+    vm = IntcodeVM(program)
+    result = vm.run()
+    assert result == 1219070632396864
+
+    program = [104, 1125899906842624, 99]
+    vm = IntcodeVM(program)
+    result = vm.run()
+    assert result == 1125899906842624

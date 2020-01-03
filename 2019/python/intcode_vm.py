@@ -208,8 +208,10 @@ sentinel = object()
 
 class IntcodeVM(object):
     def __init__(self, D, input_=None, mutate_input=None):
-        self.D = [int(i) for i in D]
+        self.D = {loc: int(i) for loc, i in enumerate(D)}
         self.pointer = 0
+        self.relative_base = 0
+
         if input_ is None:
             self.input = deque()
         else:
@@ -222,41 +224,54 @@ class IntcodeVM(object):
         self.args = None
         self.modes = None
 
-    def read(self, loc):
-        try:
-            value = self.args[loc]
-        except IndexError:
-            value = 0
-
-        if self.modes[loc] == 0:
-            return self.D[value]
-        return value
-
-    def write(self, loc, value):
-        self.D[self.args[loc]] = value
-
-    def get_opcode(self):
-        i = self.D[self.pointer]
-        opcode = i % 100
-        self.modes = [
-            (i // 100) % 10,
-            (i // 1000) % 10,
-            (i // 1000) % 10,
-        ]
-        self.args = self.D[self.pointer + 1 : self.pointer + 4]
-        return opcode
+    @property
+    def D_list(self):
+        # Useful for tests
+        return [self.D[i] for i in range(max(self.D) + 1)]
 
     def get_input(self):
         if isinstance(self.input, deque):
             return self.input.popleft()
         return self.input
 
+    def prep_instruction(self):
+        i = self.D.get(self.pointer, 0)
+        opcode = i % 100
+        self.modes = [
+            (i // 100) % 10,
+            (i // 1000) % 10,
+            (i // 10000) % 10,
+        ]
+        self.args = [self.D.get(self.pointer + i, 0) for i in range(1, 4)]
+        return opcode
+
+    def read(self, loc):
+        try:
+            value = self.args[loc]
+        except IndexError:
+            value = 0
+
+        mode = self.modes[loc]
+        if mode == 0:
+            return self.D.get(value, 0)
+        if mode == 1:
+            return value
+        return self.D.get(value + self.relative_base, 0)
+
+    def write(self, loc, value):
+        mode = self.modes[loc]
+        if mode == 0:
+            self.D[self.args[loc]] = value
+        if mode == 1:
+            raise Exception("Tried to write in mode 1!")
+        self.D[self.args[loc] + self.relative_base] = value
+
     def run(self, input_=sentinel):
         if input_ != sentinel:
             self.input = input_
 
         while True:
-            opcode = self.get_opcode()
+            opcode = self.prep_instruction()
 
             if opcode == 1:
                 self.write(2, self.read(0) + self.read(1))
@@ -296,6 +311,10 @@ class IntcodeVM(object):
             elif opcode == 8:
                 self.write(2, 1 if self.read(0) == self.read(1) else 0)
                 self.pointer += 4
+
+            elif opcode == 9:
+                self.relative_base += self.read(0)
+                self.pointer += 2
 
             elif opcode == 99:
                 return
