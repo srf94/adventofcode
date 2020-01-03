@@ -1,7 +1,7 @@
 import itertools
 from collections import deque
 from utils import read_data
-from intcode_vm import run_instructions
+from intcode_vm import IntcodeVM
 
 
 raw = read_data(7)[0].split(",")
@@ -11,9 +11,7 @@ outputs = []
 for sequence in itertools.permutations(range(5)):
     output = 0
     for phase in sequence:
-        gen = run_instructions(raw)
-        gen.next()
-        output, _ = gen.send(deque([phase, output]))
+        output = IntcodeVM(raw, input_=deque([phase, output])).run()
     outputs.append(output)
 
 
@@ -21,16 +19,11 @@ print("Part 1:")
 print(max(outputs))
 
 
-sequence = list(range(5, 10))
 outputs = []
 for sequence in itertools.permutations(range(5, 10)):
     output = 0
 
-    generators = {}
-    for phase in sequence:
-        gen = run_instructions(raw)
-        gen.next()
-        generators[phase] = gen
+    amplifiers = {phase: IntcodeVM(raw) for phase in sequence}
 
     for loc, phase in enumerate(itertools.cycle(sequence)):
         if loc < 5:
@@ -38,13 +31,11 @@ for sequence in itertools.permutations(range(5, 10)):
         else:
             data_input = deque([output])
 
-        gen = generators[phase]
-        output, ended = gen.send(data_input)
-        if ended:
-            output = data_input.popleft()
+        vm = amplifiers[phase]
+        output = vm.run(data_input)
+        if output is None:
+            outputs.append(vm.input.popleft())
             break
-        gen.next()
-    outputs.append(output)
 
 
 print("Part 2:")

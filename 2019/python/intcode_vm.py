@@ -22,7 +22,9 @@ def read(data, pointer, increment, mode, relative_base, debug):
         assert parameter >= 0
         value = extended_read(data, parameter)
         if debug:
-            print("(mode=0) Reading from pointer {}, value: {}".format(parameter, value))
+            print(
+                "(mode=0) Reading from pointer {}, value: {}".format(parameter, value)
+            )
         return value
 
     if mode == 1:
@@ -112,7 +114,11 @@ def run_instructions(data, debug=False):
             program_output_old = program_output
             program_output = read(data, pointer, 1, mode_A, relative_base, debug)
             if debug:
-                print("program_output: {} -> {}".format(program_output_old, program_output))
+                print(
+                    "program_output: {} -> {}".format(
+                        program_output_old, program_output
+                    )
+                )
             yield program_output, False
             data_input = yield
             pointer += 2
@@ -167,7 +173,9 @@ def run_instructions(data, debug=False):
             value = read(data, pointer, 1, mode_A, relative_base, debug)
             if debug:
                 print(
-                    "Relative base changed: {} -> {}".format(relative_base, relative_base + value)
+                    "Relative base changed: {} -> {}".format(
+                        relative_base, relative_base + value
+                    )
                 )
             relative_base += value
             pointer += 2
@@ -195,11 +203,17 @@ def intcode_send(gen, *input_values):
     return output
 
 
+sentinel = object()
+
+
 class IntcodeVM(object):
     def __init__(self, D, input_=None, mutate_input=None):
         self.D = [int(i) for i in D]
         self.pointer = 0
-        self.input = input_
+        if input_ is None:
+            self.input = deque()
+        else:
+            self.input = input_
 
         if mutate_input is not None:
             for k, v in mutate_input.items():
@@ -232,7 +246,15 @@ class IntcodeVM(object):
         self.args = self.D[self.pointer + 1 : self.pointer + 4]
         return opcode
 
-    def run(self):
+    def get_input(self):
+        if isinstance(self.input, deque):
+            return self.input.popleft()
+        return self.input
+
+    def run(self, input_=sentinel):
+        if input_ != sentinel:
+            self.input = input_
+
         while True:
             opcode = self.get_opcode()
 
@@ -245,7 +267,7 @@ class IntcodeVM(object):
                 self.pointer += 4
 
             elif opcode == 3:
-                self.write(0, self.input)
+                self.write(0, self.get_input())
                 self.pointer += 2
 
             elif opcode == 4:
