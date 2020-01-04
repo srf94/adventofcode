@@ -1,6 +1,5 @@
-
 from utils import read_data
-from intcode_vm import run_instructions, intcode_send
+from intcode_vm import IntcodeVM
 
 
 def draw_grid(square):
@@ -26,22 +25,16 @@ def get_reverse(d):
     return {1: 2, 2: 1, 3: 4, 4: 3}[d]
 
 
-def get_grid(raw, gen):
-    # raw[0] = 1
-    # gen = run_instructions(raw, debug=False)
+def get_grid(raw, vm):
+    flat_grid = vm.collect_all_outputs()
 
-    g = []
-    row = []
-    while True:
-        try:
-            output = intcode_send(gen)
-        except StopIteration:
-            break
-        if output == 10:
+    g, row = [], []
+    for value in flat_grid:
+        if value == 10:
             g.append(row)
             row = []
         else:
-            row.append(chr(output))
+            row.append(chr(value))
     return g
 
 
@@ -67,7 +60,7 @@ raw = read_data(17)[0].split(",")
 
 
 raw[0] = 1
-gen = run_instructions(raw, debug=False)
-grid = get_grid(raw, gen)
+vm = IntcodeVM(raw, mutate_input={0: 1})
+grid = get_grid(raw, vm)
 
 part_1(grid)
