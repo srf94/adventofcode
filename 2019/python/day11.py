@@ -1,6 +1,6 @@
 import numpy as np
 from utils import read_data
-from intcode_vm import IntcodeVM
+from intcode.vm import IntcodeVM
 
 
 raw = read_data(11)[0].split(",")

@@ -1,5 +1,5 @@
 from utils import read_data
-from intcode_vm import IntcodeVM
+from intcode.vm import IntcodeVM
 
 
 def draw_grid(square):

@@ -1,7 +1,7 @@
 import copy
 import itertools
 from utils import read_data
-from intcode_vm import IntcodeVM
+from intcode.vm import IntcodeVM
 
 
 raw = read_data(2)
@@ -43,8 +43,8 @@ for noun, verb in itertools.product(range(100), range(100)):
     result = run_opcode(raw, noun, verb)
 
     if int(result) == 19690720:
-        print ("Part 2:")
-        print 100 * noun + verb
+        print("Part 2:")
+        print(100 * noun + verb)
         break
 
 
@@ -62,5 +62,5 @@ for noun, verb in itertools.product(range(100), range(100)):
 
     if int(result) == 19690720:
         print ("Part 2 (using full intcode vm):")
-        print 100 * noun + verb
+        print (100 * noun + verb)
         break

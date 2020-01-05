@@ -1,7 +1,7 @@
 from utils import read_data
 from itertools import product
 from collections import deque
-from intcode_vm import IntcodeVM
+from intcode.vm import IntcodeVM
 
 
 raw = read_data(19)[0].split(",")

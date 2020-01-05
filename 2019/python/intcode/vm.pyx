@@ -45,7 +45,11 @@ class IntcodeVM(object):
             (i // 1000) % 10,
             (i // 10000) % 10,
         ]
-        self.args = [self.D.get(self.pointer + i, 0) for i in range(1, 4)]
+        self.args = [
+            self.D.get(self.pointer + 1, 0),
+            self.D.get(self.pointer + 2, 0),
+            self.D.get(self.pointer + 3, 0),
+        ]
         return opcode
 
     def read(self, loc):

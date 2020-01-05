@@ -1,5 +1,5 @@
 import pytest
-from intcode_vm import IntcodeVM
+from vm import IntcodeVM
 
 
 @pytest.mark.parametrize(

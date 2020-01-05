@@ -1,7 +1,8 @@
 from utils import read_data
 from collections import deque
 from itertools import combinations
-from intcode_vm import IntcodeVM
+from intcode.vm import IntcodeVM
+
 
 
 raw = read_data(25)[0].split(",")
