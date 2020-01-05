@@ -13,6 +13,8 @@ class IntcodeVM(object):
 
         if input_ is None:
             self.input = deque()
+        elif isinstance(input_, list):
+            self.input = deque(input_)
         else:
             self.input = input_
 
