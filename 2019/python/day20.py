@@ -1,6 +1,6 @@
 from utils import read_data
 from itertools import product
-from collections import defaultdict
+from collections import defaultdict, deque, namedtuple
 
 
 def add_direction(loc, d):
@@ -22,152 +22,129 @@ def get_reverse(d):
     return (d + 2) % 4
 
 
-def distance_between_points(grid_dict, start, target):
-    crawled = set()
-    path = []
-    loc = start
-    min_distance = None
-    while True:
-        for d in range(4):
-            new = add_direction(loc, d)
-            if grid_dict.get(new, "#") == "#":
-                continue
+def parse_gates(grid_dict):
+    # Record tuples of:
+    # - Letter pair
+    # - Adjacent path location
+    # - Direction from path to pair
+    gate = namedtuple("gate", ("letters", "loc", "dir"))
 
-            if new == target:
-                distance = len(path) + 1
-                if min_distance is None or distance < min_distance:
-                    min_distance = distance
+    gates = []
+    for letter_loc, value in grid_dict.items():
+        if not value.isalpha():
+            continue
 
-            if new not in crawled:
-                path.append(new)
-                crawled.add(new)
+        letter = grid_dict[letter_loc]
+        for pair_direction in [1, 2]:
+            letter_loc_2 = add_direction(letter_loc, pair_direction)
+            letter_2 = grid_dict.get(letter_loc_2)
+            if letter_2 and letter_2.isalpha():
                 break
         else:
-            if len(path):
-                path.pop()
-                try:
-                    loc = path[-1]
-                except IndexError:
-                    break
-                continue
+            continue
 
-        loc = path[-1]
-    return min_distance
+        pair = (letter, letter_2)
 
+        for loc, direction in product([letter_loc, letter_loc_2], range(4)):
+            adjacent_loc = add_direction(loc, direction)
+            if grid_dict.get(adjacent_loc) == '.':
+                gates.append(gate(pair, adjacent_loc, get_reverse(direction)))
+                break
 
-raw_test = """         A
-         A
-  #######.#########
-  #######.........#
-  #######.#######.#
-  #######.#######.#
-  #######.#######.#
-  #####  B    ###.#
-BC...##  C    ###.#
-  ##.##       ###.#
-  ##...DE  F  ###.#
-  #####    G  ###.#
-  #########.#####.#
-DE..#######...###.#
-  #.#########.###.#
-FG..#########.....#
-  ###########.#####
-             Z
-             Z       """.splitlines()
+    return gates
 
 
-raw_real = read_data(20)
-raw = raw_test
-raw = raw_real
+def pair_gates(gates):
+    gate_pairs = defaultdict(list)
+    for pair, adjacent_loc, adjacent_direction in gates:
+        if pair == ('A', 'A'):
+            start = adjacent_loc
+        elif pair == ('Z', 'Z'):
+            end = adjacent_loc
+        else:
+            gate_pairs[pair].append((adjacent_loc, adjacent_direction))
+
+    assert all(len(v) == 2 for v in gate_pairs.values())
+    return gate_pairs, start, end
 
 
-grid_list = [list(row) for row in raw]
-grid_dict = {(x, y): value for (y, row) in enumerate(grid_list) for (x, value) in enumerate(row)}
-letter_locs = {(x, y) for (x, y), value in grid_dict.items() if value.isalpha()}
+def parse_jumps(gate_pairs, X_len, Y_len):
+    jumps = {}
+    outer_jumps = set()
+    for pair, locs in gate_pairs.items():
+        loc_1, d_1 = locs[0]
+        loc_2, d_2 = locs[1]
+        jumps[(loc_1, d_1)] = loc_2
+        jumps[(loc_2, d_2)] = loc_1
+
+        outer_1 = (loc_1[0] < 3 or X_len - 4 < loc_1[0]) or (loc_1[1] < 3 or Y_len - 4 < loc_1[1])
+        outer_2 = (loc_2[0] < 3 or X_len - 4 < loc_2[0]) or (loc_2[1] < 3 or Y_len - 4 < loc_2[1])
+        assert outer_1 ^ outer_2
+        if outer_1:
+            outer_jumps.add((loc_1, d_1))
+        else:
+            outer_jumps.add((loc_2, d_2))
+
+    return jumps, outer_jumps
 
 
-# Record tuples of:
-# - Letter pair
-# - Adjacent path location
-# - Direction from path to pair
-letter_tuples = []
-for letter_loc in letter_locs:
+def find_shortest_path(grid_dict, jumps, outer_jumps, start, end, part):
+    assert part in [1, 2]
+    part_2 = part == 2
 
-    letter = grid_dict[letter_loc]
-    for pair_direction in [1, 2]:
-        letter_loc_2 = add_direction(letter_loc, pair_direction)
-        letter_2 = grid_dict.get(letter_loc_2)
-        if letter_2 and letter_2.isalpha():
-            break
-    else:
-        continue
+    step = namedtuple("step", ("loc", "d", "level"))
+    Q = deque()
+    Q.append(step(start, 0, 0))
 
-    pair = (letter, letter_2)
+    SEEN = set()
+    LEVEL_CAP = 25
+    while True:
+        loc, dist, level = Q.popleft()
 
-    for loc, direction in product([letter_loc, letter_loc_2], range(4)):
-        adjacent_loc = add_direction(loc, direction)
-        if grid_dict.get(adjacent_loc) == '.':
-            adjacent_direction = get_reverse(direction)
-            break
+        if level > LEVEL_CAP:
+            continue
 
-    letter_tuples.append((pair, adjacent_loc, adjacent_direction))
+        value = grid_dict.get(loc, "#")
+        if value != ".":
+            continue
 
-
-pairings = defaultdict(list)
-for pair, adjacent_loc, adjacent_direction in letter_tuples:
-    if pair == ('A', 'A'):
-        start = adjacent_loc
-    elif pair == ('Z', 'Z'):
-        end = adjacent_loc
-    else:
-        pairings[pair].append((adjacent_loc, adjacent_direction))
-
-
-jumps = {}
-for pair, locs in pairings.items():
-    loc_1, d_1 = locs[0]
-    loc_2, d_2 = locs[1]
-    jumps[(loc_1, d_1)] = loc_2
-    jumps[(loc_2, d_2)] = loc_1
-
-
-location = start
-path = [(location, 0)]
-seen = {location}
-min_distance = None
-rotate_from = 0
-
-
-while True:
-    for direction in range(rotate_from, 4):
-        new = jumps.get((location, direction))
-        if new is None:
-            new = add_direction(location, direction)
-        if grid_dict.get(new) == '.' and new not in seen:
-            seen.add(new)
-            location = new
-            # print('Moved in direction {} to {}'.format(direction, location))
-            break
-    else:
-        if location == start:
+        if loc == end and level == 0:
+            print("Part {}:".format(part))
+            print(dist)
             break
 
-        # Reverse back one step
-        # print('Reversing back from {} to {}'.format(path[-1][0], path[-2][0]))
-        seen.remove(location)
-        location = path[-2][0]
-        rotate_from = path[-1][1] + 1
-        path.pop()
-        continue
+        if (loc, level) in SEEN:
+            continue
+        SEEN.add((loc, level))
 
-    path.append((location, direction))
-    rotate_from = 0
+        for d in range(4):
+            new_level = level
+            new_loc = jumps.get((loc, d))
+            if new_loc is None:
+                new_loc = add_direction(loc, d)
+            elif part_2:
+                if (loc, d) in outer_jumps:
+                    if level == 0:
+                        continue
+                    new_level = level - 1
+                else:
+                    new_level = level + 1
 
-    if location == end:
-        current_distance = len(path) - 1
-        if min_distance is None or current_distance < min_distance:
-            min_distance = current_distance
+            Q.append(step(new_loc, dist + 1, new_level))
 
 
-print("Part 1:")
-print(min_distance)
+def run_both_parts(raw):
+    grid_list = [list(row) for row in raw]
+    grid_dict = {(x, y): value for (y, row) in enumerate(grid_list) for (x, value) in enumerate(row)}
+    X_len = max(len(i) for i in grid_list)
+    Y_len = len(grid_list)
+
+    gates = parse_gates(grid_dict)
+    gate_pairs, start, end = pair_gates(gates)
+    jumps, outer_jumps = parse_jumps(gate_pairs, X_len, Y_len)
+
+    find_shortest_path(grid_dict, jumps, outer_jumps, start, end, 1)
+    find_shortest_path(grid_dict, jumps, outer_jumps, start, end, 2)
+
+
+run_both_parts(read_data(20))
