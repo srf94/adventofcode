@@ -6,10 +6,7 @@ from intcode.vm import IntcodeVM
 raw = read_data(23)[0].split(",")
 
 
-computers = {
-    n: IntcodeVM(raw, input_=deque([n]), max_timeout=1000, default_input=-1)
-    for n in range(50)
-}
+computers = {n: IntcodeVM(raw, input_=deque([n]), max_timeout=1000, default_input=-1) for n in range(50)}
 
 
 N = 50

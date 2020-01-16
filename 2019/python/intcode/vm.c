@@ -3,12 +3,12 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "name": "vm", 
+        "name": "intcode.vm",
         "sources": [
             "vm.pyx"
         ]
-    }, 
-    "module_name": "vm"
+    },
+    "module_name": "intcode.vm"
 }
 END: Cython Metadata */
 
@@ -602,8 +602,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__vm
-#define __PYX_HAVE_API__vm
+#define __PYX_HAVE__intcode__vm
+#define __PYX_HAVE_API__intcode__vm
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -1329,12 +1329,12 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'vm' */
-#define __Pyx_MODULE_NAME "vm"
-extern int __pyx_module_is_main_vm;
-int __pyx_module_is_main_vm = 0;
+/* Module declarations from 'intcode.vm' */
+#define __Pyx_MODULE_NAME "intcode.vm"
+extern int __pyx_module_is_main_intcode__vm;
+int __pyx_module_is_main_intcode__vm = 0;
 
-/* Implementation of 'vm' */
+/* Implementation of 'intcode.vm' */
 static PyObject *__pyx_builtin_object;
 static PyObject *__pyx_builtin_property;
 static PyObject *__pyx_builtin_enumerate;
@@ -1345,7 +1345,6 @@ static const char __pyx_k_D[] = "D";
 static const char __pyx_k_i[] = "i";
 static const char __pyx_k_k[] = "k";
 static const char __pyx_k_v[] = "v";
-static const char __pyx_k_vm[] = "vm";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_get[] = "get";
 static const char __pyx_k_loc[] = "loc";
@@ -1387,6 +1386,7 @@ static const char __pyx_k_enumerate[] = "enumerate";
 static const char __pyx_k_get_input[] = "get_input";
 static const char __pyx_k_metaclass[] = "__metaclass__";
 static const char __pyx_k_IndexError[] = "IndexError";
+static const char __pyx_k_intcode_vm[] = "intcode.vm";
 static const char __pyx_k_collections[] = "collections";
 static const char __pyx_k_max_timeout[] = "max_timeout";
 static const char __pyx_k_mutate_input[] = "mutate_input";
@@ -1436,6 +1436,7 @@ static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_init;
 static PyObject *__pyx_n_s_input;
 static PyObject *__pyx_n_s_input_2;
+static PyObject *__pyx_n_s_intcode_vm;
 static PyObject *__pyx_n_s_items;
 static PyObject *__pyx_n_s_k;
 static PyObject *__pyx_n_s_loc;
@@ -1466,17 +1467,16 @@ static PyObject *__pyx_n_s_self;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_v;
 static PyObject *__pyx_n_s_value;
-static PyObject *__pyx_n_s_vm;
 static PyObject *__pyx_kp_s_vm_pyx;
 static PyObject *__pyx_n_s_write;
-static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_D, PyObject *__pyx_v_input_, PyObject *__pyx_v_mutate_input, PyObject *__pyx_v_max_timeout, PyObject *__pyx_v_default_input); /* proto */
-static PyObject *__pyx_pf_2vm_9IntcodeVM_2D_list(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_loc); /* proto */
-static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_loc, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_input_); /* proto */
-static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_D, PyObject *__pyx_v_input_, PyObject *__pyx_v_mutate_input, PyObject *__pyx_v_max_timeout, PyObject *__pyx_v_default_input); /* proto */
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_2D_list(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_loc); /* proto */
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_loc, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_input_); /* proto */
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
 static PyObject *__pyx_int_2;
@@ -1514,7 +1514,7 @@ static PyObject *__pyx_codeobj__17;
 static PyObject *__pyx_codeobj__20;
 /* Late includes */
 
-/* "vm.pyx":5
+/* "intcode/vm.pyx":5
  * 
  * class IntcodeVM(object):
  *     def __init__(             # <<<<<<<<<<<<<<
@@ -1523,9 +1523,9 @@ static PyObject *__pyx_codeobj__20;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2vm_9IntcodeVM_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_2vm_9IntcodeVM_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_2vm_9IntcodeVM_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_2vm_9IntcodeVM_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_7intcode_2vm_9IntcodeVM_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7intcode_2vm_9IntcodeVM_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_D = 0;
   PyObject *__pyx_v_input_ = 0;
@@ -1539,7 +1539,7 @@ static PyObject *__pyx_pw_2vm_9IntcodeVM_1__init__(PyObject *__pyx_self, PyObjec
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_D,&__pyx_n_s_input,&__pyx_n_s_mutate_input,&__pyx_n_s_max_timeout,&__pyx_n_s_default_input,0};
     PyObject* values[6] = {0,0,0,0,0,0};
 
-    /* "vm.pyx":6
+    /* "intcode/vm.pyx":6
  * class IntcodeVM(object):
  *     def __init__(
  *         self, D, input_=None, mutate_input=None, max_timeout=None, default_input=None             # <<<<<<<<<<<<<<
@@ -1635,13 +1635,13 @@ static PyObject *__pyx_pw_2vm_9IntcodeVM_1__init__(PyObject *__pyx_self, PyObjec
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 5, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("vm.IntcodeVM.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_2vm_9IntcodeVM___init__(__pyx_self, __pyx_v_self, __pyx_v_D, __pyx_v_input_, __pyx_v_mutate_input, __pyx_v_max_timeout, __pyx_v_default_input);
+  __pyx_r = __pyx_pf_7intcode_2vm_9IntcodeVM___init__(__pyx_self, __pyx_v_self, __pyx_v_D, __pyx_v_input_, __pyx_v_mutate_input, __pyx_v_max_timeout, __pyx_v_default_input);
 
-  /* "vm.pyx":5
+  /* "intcode/vm.pyx":5
  * 
  * class IntcodeVM(object):
  *     def __init__(             # <<<<<<<<<<<<<<
@@ -1654,7 +1654,7 @@ static PyObject *__pyx_pw_2vm_9IntcodeVM_1__init__(PyObject *__pyx_self, PyObjec
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_D, PyObject *__pyx_v_input_, PyObject *__pyx_v_mutate_input, PyObject *__pyx_v_max_timeout, PyObject *__pyx_v_default_input) {
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_D, PyObject *__pyx_v_input_, PyObject *__pyx_v_mutate_input, PyObject *__pyx_v_max_timeout, PyObject *__pyx_v_default_input) {
   PyObject *__pyx_v_k = NULL;
   PyObject *__pyx_v_v = NULL;
   PyObject *__pyx_7genexpr__pyx_v_loc = NULL;
@@ -1673,7 +1673,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
   PyObject *(*__pyx_t_10)(PyObject *);
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "vm.pyx":8
+  /* "intcode/vm.pyx":8
  *         self, D, input_=None, mutate_input=None, max_timeout=None, default_input=None
  *     ):
  *         self.D = {loc: int(i) for loc, i in enumerate(D)}             # <<<<<<<<<<<<<<
@@ -1752,7 +1752,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_D, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "vm.pyx":9
+  /* "intcode/vm.pyx":9
  *     ):
  *         self.D = {loc: int(i) for loc, i in enumerate(D)}
  *         self.pointer = 0             # <<<<<<<<<<<<<<
@@ -1761,7 +1761,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pointer, __pyx_int_0) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
 
-  /* "vm.pyx":10
+  /* "intcode/vm.pyx":10
  *         self.D = {loc: int(i) for loc, i in enumerate(D)}
  *         self.pointer = 0
  *         self.relative_base = 0             # <<<<<<<<<<<<<<
@@ -1770,7 +1770,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_relative_base, __pyx_int_0) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
 
-  /* "vm.pyx":11
+  /* "intcode/vm.pyx":11
  *         self.pointer = 0
  *         self.relative_base = 0
  *         self.max_timeout = max_timeout             # <<<<<<<<<<<<<<
@@ -1779,7 +1779,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_max_timeout, __pyx_v_max_timeout) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
 
-  /* "vm.pyx":12
+  /* "intcode/vm.pyx":12
  *         self.relative_base = 0
  *         self.max_timeout = max_timeout
  *         self.default_input = default_input             # <<<<<<<<<<<<<<
@@ -1788,7 +1788,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_default_input, __pyx_v_default_input) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
 
-  /* "vm.pyx":14
+  /* "intcode/vm.pyx":14
  *         self.default_input = default_input
  * 
  *         if input_ is None:             # <<<<<<<<<<<<<<
@@ -1799,7 +1799,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
   __pyx_t_8 = (__pyx_t_7 != 0);
   if (__pyx_t_8) {
 
-    /* "vm.pyx":15
+    /* "intcode/vm.pyx":15
  * 
  *         if input_ is None:
  *             self.input = deque()             # <<<<<<<<<<<<<<
@@ -1826,7 +1826,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
     if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_input_2, __pyx_t_1) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "vm.pyx":14
+    /* "intcode/vm.pyx":14
  *         self.default_input = default_input
  * 
  *         if input_ is None:             # <<<<<<<<<<<<<<
@@ -1836,7 +1836,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
     goto __pyx_L9;
   }
 
-  /* "vm.pyx":16
+  /* "intcode/vm.pyx":16
  *         if input_ is None:
  *             self.input = deque()
  *         elif isinstance(input_, list):             # <<<<<<<<<<<<<<
@@ -1847,7 +1847,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
   __pyx_t_7 = (__pyx_t_8 != 0);
   if (__pyx_t_7) {
 
-    /* "vm.pyx":17
+    /* "intcode/vm.pyx":17
  *             self.input = deque()
  *         elif isinstance(input_, list):
  *             self.input = deque(input_)             # <<<<<<<<<<<<<<
@@ -1874,7 +1874,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
     if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_input_2, __pyx_t_1) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "vm.pyx":16
+    /* "intcode/vm.pyx":16
  *         if input_ is None:
  *             self.input = deque()
  *         elif isinstance(input_, list):             # <<<<<<<<<<<<<<
@@ -1884,7 +1884,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
     goto __pyx_L9;
   }
 
-  /* "vm.pyx":19
+  /* "intcode/vm.pyx":19
  *             self.input = deque(input_)
  *         else:
  *             self.input = input_             # <<<<<<<<<<<<<<
@@ -1896,7 +1896,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
   }
   __pyx_L9:;
 
-  /* "vm.pyx":21
+  /* "intcode/vm.pyx":21
  *             self.input = input_
  * 
  *         if mutate_input is not None:             # <<<<<<<<<<<<<<
@@ -1907,7 +1907,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
   __pyx_t_8 = (__pyx_t_7 != 0);
   if (__pyx_t_8) {
 
-    /* "vm.pyx":22
+    /* "intcode/vm.pyx":22
  * 
  *         if mutate_input is not None:
  *             for k, v in mutate_input.items():             # <<<<<<<<<<<<<<
@@ -2022,7 +2022,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
       __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "vm.pyx":23
+      /* "intcode/vm.pyx":23
  *         if mutate_input is not None:
  *             for k, v in mutate_input.items():
  *                 self.D[k] = v             # <<<<<<<<<<<<<<
@@ -2034,7 +2034,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
       if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_k, __pyx_v_v) < 0)) __PYX_ERR(0, 23, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "vm.pyx":22
+      /* "intcode/vm.pyx":22
  * 
  *         if mutate_input is not None:
  *             for k, v in mutate_input.items():             # <<<<<<<<<<<<<<
@@ -2044,7 +2044,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "vm.pyx":21
+    /* "intcode/vm.pyx":21
  *             self.input = input_
  * 
  *         if mutate_input is not None:             # <<<<<<<<<<<<<<
@@ -2053,7 +2053,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
  */
   }
 
-  /* "vm.pyx":25
+  /* "intcode/vm.pyx":25
  *                 self.D[k] = v
  * 
  *         self.args = None             # <<<<<<<<<<<<<<
@@ -2062,7 +2062,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_args, Py_None) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
 
-  /* "vm.pyx":26
+  /* "intcode/vm.pyx":26
  * 
  *         self.args = None
  *         self.modes = None             # <<<<<<<<<<<<<<
@@ -2071,7 +2071,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_modes, Py_None) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
 
-  /* "vm.pyx":5
+  /* "intcode/vm.pyx":5
  * 
  * class IntcodeVM(object):
  *     def __init__(             # <<<<<<<<<<<<<<
@@ -2088,7 +2088,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("vm.IntcodeVM.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_k);
@@ -2100,7 +2100,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
   return __pyx_r;
 }
 
-/* "vm.pyx":29
+/* "intcode/vm.pyx":29
  * 
  *     @property
  *     def D_list(self):             # <<<<<<<<<<<<<<
@@ -2109,20 +2109,20 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM___init__(CYTHON_UNUSED PyObject *__pyx_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2vm_9IntcodeVM_3D_list(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_2vm_9IntcodeVM_3D_list = {"D_list", (PyCFunction)__pyx_pw_2vm_9IntcodeVM_3D_list, METH_O, 0};
-static PyObject *__pyx_pw_2vm_9IntcodeVM_3D_list(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_3D_list(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_7intcode_2vm_9IntcodeVM_3D_list = {"D_list", (PyCFunction)__pyx_pw_7intcode_2vm_9IntcodeVM_3D_list, METH_O, 0};
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_3D_list(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("D_list (wrapper)", 0);
-  __pyx_r = __pyx_pf_2vm_9IntcodeVM_2D_list(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_7intcode_2vm_9IntcodeVM_2D_list(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_2vm_9IntcodeVM_2D_list(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_2D_list(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_i = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -2134,7 +2134,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_2D_list(CYTHON_UNUSED PyObject *__pyx_s
   PyObject *__pyx_t_6 = NULL;
   __Pyx_RefNannySetupContext("D_list", 0);
 
-  /* "vm.pyx":31
+  /* "intcode/vm.pyx":31
  *     def D_list(self):
  *         # Useful for tests
  *         return [self.D[i] for i in range(max(self.D) + 1)]             # <<<<<<<<<<<<<<
@@ -2210,7 +2210,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_2D_list(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "vm.pyx":29
+  /* "intcode/vm.pyx":29
  * 
  *     @property
  *     def D_list(self):             # <<<<<<<<<<<<<<
@@ -2224,7 +2224,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_2D_list(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("vm.IntcodeVM.D_list", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.D_list", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_i);
@@ -2233,7 +2233,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_2D_list(CYTHON_UNUSED PyObject *__pyx_s
   return __pyx_r;
 }
 
-/* "vm.pyx":33
+/* "intcode/vm.pyx":33
  *         return [self.D[i] for i in range(max(self.D) + 1)]
  * 
  *     def get_input(self):             # <<<<<<<<<<<<<<
@@ -2242,20 +2242,20 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_2D_list(CYTHON_UNUSED PyObject *__pyx_s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2vm_9IntcodeVM_5get_input(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_2vm_9IntcodeVM_5get_input = {"get_input", (PyCFunction)__pyx_pw_2vm_9IntcodeVM_5get_input, METH_O, 0};
-static PyObject *__pyx_pw_2vm_9IntcodeVM_5get_input(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_5get_input(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_7intcode_2vm_9IntcodeVM_5get_input = {"get_input", (PyCFunction)__pyx_pw_7intcode_2vm_9IntcodeVM_5get_input, METH_O, 0};
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_5get_input(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("get_input (wrapper)", 0);
-  __pyx_r = __pyx_pf_2vm_9IntcodeVM_4get_input(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_7intcode_2vm_9IntcodeVM_4get_input(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2269,7 +2269,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
   PyObject *__pyx_t_9 = NULL;
   __Pyx_RefNannySetupContext("get_input", 0);
 
-  /* "vm.pyx":34
+  /* "intcode/vm.pyx":34
  * 
  *     def get_input(self):
  *         if isinstance(self.input, deque):             # <<<<<<<<<<<<<<
@@ -2286,7 +2286,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
   __pyx_t_4 = (__pyx_t_3 != 0);
   if (__pyx_t_4) {
 
-    /* "vm.pyx":35
+    /* "intcode/vm.pyx":35
  *     def get_input(self):
  *         if isinstance(self.input, deque):
  *             try:             # <<<<<<<<<<<<<<
@@ -2302,7 +2302,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
       __Pyx_XGOTREF(__pyx_t_7);
       /*try:*/ {
 
-        /* "vm.pyx":36
+        /* "intcode/vm.pyx":36
  *         if isinstance(self.input, deque):
  *             try:
  *                 return self.input.popleft()             # <<<<<<<<<<<<<<
@@ -2334,7 +2334,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
         __pyx_t_2 = 0;
         goto __pyx_L8_try_return;
 
-        /* "vm.pyx":35
+        /* "intcode/vm.pyx":35
  *     def get_input(self):
  *         if isinstance(self.input, deque):
  *             try:             # <<<<<<<<<<<<<<
@@ -2347,7 +2347,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "vm.pyx":37
+      /* "intcode/vm.pyx":37
  *             try:
  *                 return self.input.popleft()
  *             except:             # <<<<<<<<<<<<<<
@@ -2355,13 +2355,13 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
  * 
  */
       /*except:*/ {
-        __Pyx_AddTraceback("vm.IntcodeVM.get_input", __pyx_clineno, __pyx_lineno, __pyx_filename);
+        __Pyx_AddTraceback("intcode.vm.IntcodeVM.get_input", __pyx_clineno, __pyx_lineno, __pyx_filename);
         if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_8, &__pyx_t_1) < 0) __PYX_ERR(0, 37, __pyx_L6_except_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_GOTREF(__pyx_t_1);
 
-        /* "vm.pyx":38
+        /* "intcode/vm.pyx":38
  *                 return self.input.popleft()
  *             except:
  *                 return self.default_input             # <<<<<<<<<<<<<<
@@ -2380,7 +2380,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
       }
       __pyx_L6_except_error:;
 
-      /* "vm.pyx":35
+      /* "intcode/vm.pyx":35
  *     def get_input(self):
  *         if isinstance(self.input, deque):
  *             try:             # <<<<<<<<<<<<<<
@@ -2406,7 +2406,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
       goto __pyx_L0;
     }
 
-    /* "vm.pyx":34
+    /* "intcode/vm.pyx":34
  * 
  *     def get_input(self):
  *         if isinstance(self.input, deque):             # <<<<<<<<<<<<<<
@@ -2415,7 +2415,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
  */
   }
 
-  /* "vm.pyx":40
+  /* "intcode/vm.pyx":40
  *                 return self.default_input
  * 
  *         return self.input             # <<<<<<<<<<<<<<
@@ -2429,7 +2429,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "vm.pyx":33
+  /* "intcode/vm.pyx":33
  *         return [self.D[i] for i in range(max(self.D) + 1)]
  * 
  *     def get_input(self):             # <<<<<<<<<<<<<<
@@ -2443,7 +2443,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("vm.IntcodeVM.get_input", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.get_input", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2451,7 +2451,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
   return __pyx_r;
 }
 
-/* "vm.pyx":42
+/* "intcode/vm.pyx":42
  *         return self.input
  * 
  *     def prep_instruction(self):             # <<<<<<<<<<<<<<
@@ -2460,20 +2460,20 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_4get_input(CYTHON_UNUSED PyObject *__py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2vm_9IntcodeVM_7prep_instruction(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_2vm_9IntcodeVM_7prep_instruction = {"prep_instruction", (PyCFunction)__pyx_pw_2vm_9IntcodeVM_7prep_instruction, METH_O, 0};
-static PyObject *__pyx_pw_2vm_9IntcodeVM_7prep_instruction(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_7prep_instruction(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_7intcode_2vm_9IntcodeVM_7prep_instruction = {"prep_instruction", (PyCFunction)__pyx_pw_7intcode_2vm_9IntcodeVM_7prep_instruction, METH_O, 0};
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_7prep_instruction(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("prep_instruction (wrapper)", 0);
-  __pyx_r = __pyx_pf_2vm_9IntcodeVM_6prep_instruction(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_7intcode_2vm_9IntcodeVM_6prep_instruction(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_i = NULL;
   PyObject *__pyx_v_opcode = NULL;
   PyObject *__pyx_r = NULL;
@@ -2488,7 +2488,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   PyObject *__pyx_t_8 = NULL;
   __Pyx_RefNannySetupContext("prep_instruction", 0);
 
-  /* "vm.pyx":43
+  /* "intcode/vm.pyx":43
  * 
  *     def prep_instruction(self):
  *         i = self.D.get(self.pointer, 0)             # <<<<<<<<<<<<<<
@@ -2552,7 +2552,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   __pyx_v_i = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "vm.pyx":44
+  /* "intcode/vm.pyx":44
  *     def prep_instruction(self):
  *         i = self.D.get(self.pointer, 0)
  *         opcode = i % 100             # <<<<<<<<<<<<<<
@@ -2564,7 +2564,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   __pyx_v_opcode = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "vm.pyx":46
+  /* "intcode/vm.pyx":46
  *         opcode = i % 100
  *         self.modes = [
  *             (i // 100) % 10,             # <<<<<<<<<<<<<<
@@ -2577,7 +2577,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "vm.pyx":47
+  /* "intcode/vm.pyx":47
  *         self.modes = [
  *             (i // 100) % 10,
  *             (i // 1000) % 10,             # <<<<<<<<<<<<<<
@@ -2590,7 +2590,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "vm.pyx":48
+  /* "intcode/vm.pyx":48
  *             (i // 100) % 10,
  *             (i // 1000) % 10,
  *             (i // 10000) % 10,             # <<<<<<<<<<<<<<
@@ -2603,7 +2603,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "vm.pyx":45
+  /* "intcode/vm.pyx":45
  *         i = self.D.get(self.pointer, 0)
  *         opcode = i % 100
  *         self.modes = [             # <<<<<<<<<<<<<<
@@ -2624,7 +2624,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_modes, __pyx_t_1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "vm.pyx":51
+  /* "intcode/vm.pyx":51
  *         ]
  *         self.args = [
  *             self.D.get(self.pointer + 1, 0),             # <<<<<<<<<<<<<<
@@ -2689,7 +2689,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "vm.pyx":52
+  /* "intcode/vm.pyx":52
  *         self.args = [
  *             self.D.get(self.pointer + 1, 0),
  *             self.D.get(self.pointer + 2, 0),             # <<<<<<<<<<<<<<
@@ -2754,7 +2754,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "vm.pyx":53
+  /* "intcode/vm.pyx":53
  *             self.D.get(self.pointer + 1, 0),
  *             self.D.get(self.pointer + 2, 0),
  *             self.D.get(self.pointer + 3, 0),             # <<<<<<<<<<<<<<
@@ -2819,7 +2819,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "vm.pyx":50
+  /* "intcode/vm.pyx":50
  *             (i // 10000) % 10,
  *         ]
  *         self.args = [             # <<<<<<<<<<<<<<
@@ -2840,7 +2840,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_args, __pyx_t_2) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "vm.pyx":55
+  /* "intcode/vm.pyx":55
  *             self.D.get(self.pointer + 3, 0),
  *         ]
  *         return opcode             # <<<<<<<<<<<<<<
@@ -2852,7 +2852,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   __pyx_r = __pyx_v_opcode;
   goto __pyx_L0;
 
-  /* "vm.pyx":42
+  /* "intcode/vm.pyx":42
  *         return self.input
  * 
  *     def prep_instruction(self):             # <<<<<<<<<<<<<<
@@ -2869,7 +2869,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("vm.IntcodeVM.prep_instruction", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.prep_instruction", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_i);
@@ -2879,7 +2879,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "vm.pyx":57
+/* "intcode/vm.pyx":57
  *         return opcode
  * 
  *     def read(self, loc):             # <<<<<<<<<<<<<<
@@ -2888,9 +2888,9 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_6prep_instruction(CYTHON_UNUSED PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2vm_9IntcodeVM_9read(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_2vm_9IntcodeVM_9read = {"read", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_2vm_9IntcodeVM_9read, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_2vm_9IntcodeVM_9read(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_9read(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_7intcode_2vm_9IntcodeVM_9read = {"read", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7intcode_2vm_9IntcodeVM_9read, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_9read(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_loc = 0;
   PyObject *__pyx_r = 0;
@@ -2938,18 +2938,18 @@ static PyObject *__pyx_pw_2vm_9IntcodeVM_9read(PyObject *__pyx_self, PyObject *_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("read", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 57, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("vm.IntcodeVM.read", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.read", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_2vm_9IntcodeVM_8read(__pyx_self, __pyx_v_self, __pyx_v_loc);
+  __pyx_r = __pyx_pf_7intcode_2vm_9IntcodeVM_8read(__pyx_self, __pyx_v_self, __pyx_v_loc);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_loc) {
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_loc) {
   PyObject *__pyx_v_value = NULL;
   PyObject *__pyx_v_mode = NULL;
   PyObject *__pyx_r = NULL;
@@ -2966,7 +2966,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("read", 0);
 
-  /* "vm.pyx":58
+  /* "intcode/vm.pyx":58
  * 
  *     def read(self, loc):
  *         try:             # <<<<<<<<<<<<<<
@@ -2982,7 +2982,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "vm.pyx":59
+      /* "intcode/vm.pyx":59
  *     def read(self, loc):
  *         try:
  *             value = self.args[loc]             # <<<<<<<<<<<<<<
@@ -2997,7 +2997,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
       __pyx_v_value = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "vm.pyx":58
+      /* "intcode/vm.pyx":58
  * 
  *     def read(self, loc):
  *         try:             # <<<<<<<<<<<<<<
@@ -3013,7 +3013,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "vm.pyx":60
+    /* "intcode/vm.pyx":60
  *         try:
  *             value = self.args[loc]
  *         except IndexError:             # <<<<<<<<<<<<<<
@@ -3022,13 +3022,13 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
  */
     __pyx_t_6 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_IndexError);
     if (__pyx_t_6) {
-      __Pyx_AddTraceback("vm.IntcodeVM.read", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("intcode.vm.IntcodeVM.read", __pyx_clineno, __pyx_lineno, __pyx_filename);
       if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_4, &__pyx_t_7) < 0) __PYX_ERR(0, 60, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "vm.pyx":61
+      /* "intcode/vm.pyx":61
  *             value = self.args[loc]
  *         except IndexError:
  *             value = 0             # <<<<<<<<<<<<<<
@@ -3045,7 +3045,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
-    /* "vm.pyx":58
+    /* "intcode/vm.pyx":58
  * 
  *     def read(self, loc):
  *         try:             # <<<<<<<<<<<<<<
@@ -3065,7 +3065,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
     __pyx_L8_try_end:;
   }
 
-  /* "vm.pyx":63
+  /* "intcode/vm.pyx":63
  *             value = 0
  * 
  *         mode = self.modes[loc]             # <<<<<<<<<<<<<<
@@ -3080,7 +3080,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_v_mode = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "vm.pyx":64
+  /* "intcode/vm.pyx":64
  * 
  *         mode = self.modes[loc]
  *         if mode == 0:             # <<<<<<<<<<<<<<
@@ -3093,7 +3093,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_8) {
 
-    /* "vm.pyx":65
+    /* "intcode/vm.pyx":65
  *         mode = self.modes[loc]
  *         if mode == 0:
  *             return self.D.get(value, 0)             # <<<<<<<<<<<<<<
@@ -3155,7 +3155,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "vm.pyx":64
+    /* "intcode/vm.pyx":64
  * 
  *         mode = self.modes[loc]
  *         if mode == 0:             # <<<<<<<<<<<<<<
@@ -3164,7 +3164,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
  */
   }
 
-  /* "vm.pyx":66
+  /* "intcode/vm.pyx":66
  *         if mode == 0:
  *             return self.D.get(value, 0)
  *         if mode == 1:             # <<<<<<<<<<<<<<
@@ -3177,7 +3177,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_8) {
 
-    /* "vm.pyx":67
+    /* "intcode/vm.pyx":67
  *             return self.D.get(value, 0)
  *         if mode == 1:
  *             return value             # <<<<<<<<<<<<<<
@@ -3189,7 +3189,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
     __pyx_r = __pyx_v_value;
     goto __pyx_L0;
 
-    /* "vm.pyx":66
+    /* "intcode/vm.pyx":66
  *         if mode == 0:
  *             return self.D.get(value, 0)
  *         if mode == 1:             # <<<<<<<<<<<<<<
@@ -3198,7 +3198,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
  */
   }
 
-  /* "vm.pyx":68
+  /* "intcode/vm.pyx":68
  *         if mode == 1:
  *             return value
  *         return self.D.get(value + self.relative_base, 0)             # <<<<<<<<<<<<<<
@@ -3267,7 +3267,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "vm.pyx":57
+  /* "intcode/vm.pyx":57
  *         return opcode
  * 
  *     def read(self, loc):             # <<<<<<<<<<<<<<
@@ -3282,7 +3282,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("vm.IntcodeVM.read", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.read", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_value);
@@ -3292,7 +3292,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
   return __pyx_r;
 }
 
-/* "vm.pyx":70
+/* "intcode/vm.pyx":70
  *         return self.D.get(value + self.relative_base, 0)
  * 
  *     def write(self, loc, value):             # <<<<<<<<<<<<<<
@@ -3301,9 +3301,9 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_8read(CYTHON_UNUSED PyObject *__pyx_sel
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2vm_9IntcodeVM_11write(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_2vm_9IntcodeVM_11write = {"write", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_2vm_9IntcodeVM_11write, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_2vm_9IntcodeVM_11write(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_11write(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_7intcode_2vm_9IntcodeVM_11write = {"write", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7intcode_2vm_9IntcodeVM_11write, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_11write(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_loc = 0;
   PyObject *__pyx_v_value = 0;
@@ -3362,18 +3362,18 @@ static PyObject *__pyx_pw_2vm_9IntcodeVM_11write(PyObject *__pyx_self, PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("write", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 70, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("vm.IntcodeVM.write", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.write", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_2vm_9IntcodeVM_10write(__pyx_self, __pyx_v_self, __pyx_v_loc, __pyx_v_value);
+  __pyx_r = __pyx_pf_7intcode_2vm_9IntcodeVM_10write(__pyx_self, __pyx_v_self, __pyx_v_loc, __pyx_v_value);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_loc, PyObject *__pyx_v_value) {
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_loc, PyObject *__pyx_v_value) {
   PyObject *__pyx_v_mode = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3384,7 +3384,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
   PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannySetupContext("write", 0);
 
-  /* "vm.pyx":71
+  /* "intcode/vm.pyx":71
  * 
  *     def write(self, loc, value):
  *         mode = self.modes[loc]             # <<<<<<<<<<<<<<
@@ -3399,7 +3399,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_v_mode = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "vm.pyx":72
+  /* "intcode/vm.pyx":72
  *     def write(self, loc, value):
  *         mode = self.modes[loc]
  *         if mode == 0:             # <<<<<<<<<<<<<<
@@ -3412,7 +3412,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "vm.pyx":73
+    /* "intcode/vm.pyx":73
  *         mode = self.modes[loc]
  *         if mode == 0:
  *             self.D[self.args[loc]] = value             # <<<<<<<<<<<<<<
@@ -3430,7 +3430,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "vm.pyx":72
+    /* "intcode/vm.pyx":72
  *     def write(self, loc, value):
  *         mode = self.modes[loc]
  *         if mode == 0:             # <<<<<<<<<<<<<<
@@ -3439,7 +3439,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
  */
   }
 
-  /* "vm.pyx":74
+  /* "intcode/vm.pyx":74
  *         if mode == 0:
  *             self.D[self.args[loc]] = value
  *         if mode == 1:             # <<<<<<<<<<<<<<
@@ -3452,7 +3452,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (unlikely(__pyx_t_3)) {
 
-    /* "vm.pyx":75
+    /* "intcode/vm.pyx":75
  *             self.D[self.args[loc]] = value
  *         if mode == 1:
  *             raise Exception("Tried to write in mode 1!")             # <<<<<<<<<<<<<<
@@ -3465,7 +3465,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __PYX_ERR(0, 75, __pyx_L1_error)
 
-    /* "vm.pyx":74
+    /* "intcode/vm.pyx":74
  *         if mode == 0:
  *             self.D[self.args[loc]] = value
  *         if mode == 1:             # <<<<<<<<<<<<<<
@@ -3474,7 +3474,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
  */
   }
 
-  /* "vm.pyx":76
+  /* "intcode/vm.pyx":76
  *         if mode == 1:
  *             raise Exception("Tried to write in mode 1!")
  *         self.D[self.args[loc] + self.relative_base] = value             # <<<<<<<<<<<<<<
@@ -3498,7 +3498,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "vm.pyx":70
+  /* "intcode/vm.pyx":70
  *         return self.D.get(value + self.relative_base, 0)
  * 
  *     def write(self, loc, value):             # <<<<<<<<<<<<<<
@@ -3514,7 +3514,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("vm.IntcodeVM.write", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.write", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_mode);
@@ -3523,7 +3523,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
   return __pyx_r;
 }
 
-/* "vm.pyx":78
+/* "intcode/vm.pyx":78
  *         self.D[self.args[loc] + self.relative_base] = value
  * 
  *     def run(self, input_=None):             # <<<<<<<<<<<<<<
@@ -3532,9 +3532,9 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_10write(CYTHON_UNUSED PyObject *__pyx_s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2vm_9IntcodeVM_13run(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_2vm_9IntcodeVM_13run = {"run", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_2vm_9IntcodeVM_13run, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_2vm_9IntcodeVM_13run(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_13run(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_7intcode_2vm_9IntcodeVM_13run = {"run", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7intcode_2vm_9IntcodeVM_13run, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_13run(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_input_ = 0;
   PyObject *__pyx_r = 0;
@@ -3586,18 +3586,18 @@ static PyObject *__pyx_pw_2vm_9IntcodeVM_13run(PyObject *__pyx_self, PyObject *_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("run", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 78, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("vm.IntcodeVM.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_2vm_9IntcodeVM_12run(__pyx_self, __pyx_v_self, __pyx_v_input_);
+  __pyx_r = __pyx_pf_7intcode_2vm_9IntcodeVM_12run(__pyx_self, __pyx_v_self, __pyx_v_input_);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_input_) {
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_input_) {
   PyObject *__pyx_v_counter = NULL;
   PyObject *__pyx_v_opcode = NULL;
   PyObject *__pyx_v_value = NULL;
@@ -3616,7 +3616,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
   PyObject *__pyx_t_11 = NULL;
   __Pyx_RefNannySetupContext("run", 0);
 
-  /* "vm.pyx":79
+  /* "intcode/vm.pyx":79
  * 
  *     def run(self, input_=None):
  *         if input_ is not None:             # <<<<<<<<<<<<<<
@@ -3627,7 +3627,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "vm.pyx":80
+    /* "intcode/vm.pyx":80
  *     def run(self, input_=None):
  *         if input_ is not None:
  *             self.input = input_             # <<<<<<<<<<<<<<
@@ -3636,7 +3636,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
  */
     if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_input_2, __pyx_v_input_) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
 
-    /* "vm.pyx":79
+    /* "intcode/vm.pyx":79
  * 
  *     def run(self, input_=None):
  *         if input_ is not None:             # <<<<<<<<<<<<<<
@@ -3645,7 +3645,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
  */
   }
 
-  /* "vm.pyx":82
+  /* "intcode/vm.pyx":82
  *             self.input = input_
  * 
  *         counter = 0             # <<<<<<<<<<<<<<
@@ -3655,7 +3655,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_counter = __pyx_int_0;
 
-  /* "vm.pyx":83
+  /* "intcode/vm.pyx":83
  * 
  *         counter = 0
  *         while True:             # <<<<<<<<<<<<<<
@@ -3664,7 +3664,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
  */
   while (1) {
 
-    /* "vm.pyx":84
+    /* "intcode/vm.pyx":84
  *         counter = 0
  *         while True:
  *             counter += 1             # <<<<<<<<<<<<<<
@@ -3676,7 +3676,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF_SET(__pyx_v_counter, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "vm.pyx":85
+    /* "intcode/vm.pyx":85
  *         while True:
  *             counter += 1
  *             if self.max_timeout is not None and self.max_timeout < counter:             # <<<<<<<<<<<<<<
@@ -3703,7 +3703,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __pyx_L7_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "vm.pyx":86
+      /* "intcode/vm.pyx":86
  *             counter += 1
  *             if self.max_timeout is not None and self.max_timeout < counter:
  *                 return None             # <<<<<<<<<<<<<<
@@ -3714,7 +3714,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __pyx_r = Py_None; __Pyx_INCREF(Py_None);
       goto __pyx_L0;
 
-      /* "vm.pyx":85
+      /* "intcode/vm.pyx":85
  *         while True:
  *             counter += 1
  *             if self.max_timeout is not None and self.max_timeout < counter:             # <<<<<<<<<<<<<<
@@ -3723,7 +3723,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
  */
     }
 
-    /* "vm.pyx":88
+    /* "intcode/vm.pyx":88
  *                 return None
  * 
  *             opcode = self.prep_instruction()             # <<<<<<<<<<<<<<
@@ -3750,7 +3750,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_XDECREF_SET(__pyx_v_opcode, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "vm.pyx":90
+    /* "intcode/vm.pyx":90
  *             opcode = self.prep_instruction()
  * 
  *             if opcode == 1:             # <<<<<<<<<<<<<<
@@ -3763,7 +3763,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_2) {
 
-      /* "vm.pyx":91
+      /* "intcode/vm.pyx":91
  * 
  *             if opcode == 1:
  *                 self.write(2, self.read(0) + self.read(1))             # <<<<<<<<<<<<<<
@@ -3859,7 +3859,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "vm.pyx":92
+      /* "intcode/vm.pyx":92
  *             if opcode == 1:
  *                 self.write(2, self.read(0) + self.read(1))
  *                 self.pointer += 4             # <<<<<<<<<<<<<<
@@ -3874,7 +3874,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pointer, __pyx_t_3) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "vm.pyx":90
+      /* "intcode/vm.pyx":90
  *             opcode = self.prep_instruction()
  * 
  *             if opcode == 1:             # <<<<<<<<<<<<<<
@@ -3884,7 +3884,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       goto __pyx_L9;
     }
 
-    /* "vm.pyx":94
+    /* "intcode/vm.pyx":94
  *                 self.pointer += 4
  * 
  *             elif opcode == 2:             # <<<<<<<<<<<<<<
@@ -3897,7 +3897,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "vm.pyx":95
+      /* "intcode/vm.pyx":95
  * 
  *             elif opcode == 2:
  *                 self.write(2, self.read(0) * self.read(1))             # <<<<<<<<<<<<<<
@@ -3993,7 +3993,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "vm.pyx":96
+      /* "intcode/vm.pyx":96
  *             elif opcode == 2:
  *                 self.write(2, self.read(0) * self.read(1))
  *                 self.pointer += 4             # <<<<<<<<<<<<<<
@@ -4008,7 +4008,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pointer, __pyx_t_5) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "vm.pyx":94
+      /* "intcode/vm.pyx":94
  *                 self.pointer += 4
  * 
  *             elif opcode == 2:             # <<<<<<<<<<<<<<
@@ -4018,7 +4018,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       goto __pyx_L9;
     }
 
-    /* "vm.pyx":98
+    /* "intcode/vm.pyx":98
  *                 self.pointer += 4
  * 
  *             elif opcode == 3:             # <<<<<<<<<<<<<<
@@ -4031,7 +4031,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_2) {
 
-      /* "vm.pyx":99
+      /* "intcode/vm.pyx":99
  * 
  *             elif opcode == 3:
  *                 self.write(0, self.get_input())             # <<<<<<<<<<<<<<
@@ -4106,7 +4106,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "vm.pyx":100
+      /* "intcode/vm.pyx":100
  *             elif opcode == 3:
  *                 self.write(0, self.get_input())
  *                 self.pointer += 2             # <<<<<<<<<<<<<<
@@ -4121,7 +4121,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pointer, __pyx_t_3) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "vm.pyx":98
+      /* "intcode/vm.pyx":98
  *                 self.pointer += 4
  * 
  *             elif opcode == 3:             # <<<<<<<<<<<<<<
@@ -4131,7 +4131,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       goto __pyx_L9;
     }
 
-    /* "vm.pyx":102
+    /* "intcode/vm.pyx":102
  *                 self.pointer += 2
  * 
  *             elif opcode == 4:             # <<<<<<<<<<<<<<
@@ -4144,7 +4144,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "vm.pyx":103
+      /* "intcode/vm.pyx":103
  * 
  *             elif opcode == 4:
  *                 value = self.read(0)             # <<<<<<<<<<<<<<
@@ -4171,7 +4171,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "vm.pyx":104
+      /* "intcode/vm.pyx":104
  *             elif opcode == 4:
  *                 value = self.read(0)
  *                 self.pointer += 2             # <<<<<<<<<<<<<<
@@ -4186,7 +4186,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pointer, __pyx_t_5) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "vm.pyx":105
+      /* "intcode/vm.pyx":105
  *                 value = self.read(0)
  *                 self.pointer += 2
  *                 return value             # <<<<<<<<<<<<<<
@@ -4198,7 +4198,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __pyx_r = __pyx_v_value;
       goto __pyx_L0;
 
-      /* "vm.pyx":102
+      /* "intcode/vm.pyx":102
  *                 self.pointer += 2
  * 
  *             elif opcode == 4:             # <<<<<<<<<<<<<<
@@ -4207,7 +4207,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
  */
     }
 
-    /* "vm.pyx":107
+    /* "intcode/vm.pyx":107
  *                 return value
  * 
  *             elif opcode == 5:             # <<<<<<<<<<<<<<
@@ -4220,7 +4220,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_2) {
 
-      /* "vm.pyx":108
+      /* "intcode/vm.pyx":108
  * 
  *             elif opcode == 5:
  *                 value = self.read(0)             # <<<<<<<<<<<<<<
@@ -4247,7 +4247,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "vm.pyx":109
+      /* "intcode/vm.pyx":109
  *             elif opcode == 5:
  *                 value = self.read(0)
  *                 if value != 0:             # <<<<<<<<<<<<<<
@@ -4260,7 +4260,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_2) {
 
-        /* "vm.pyx":110
+        /* "intcode/vm.pyx":110
  *                 value = self.read(0)
  *                 if value != 0:
  *                     self.pointer = self.read(1)             # <<<<<<<<<<<<<<
@@ -4287,7 +4287,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
         if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pointer, __pyx_t_5) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "vm.pyx":109
+        /* "intcode/vm.pyx":109
  *             elif opcode == 5:
  *                 value = self.read(0)
  *                 if value != 0:             # <<<<<<<<<<<<<<
@@ -4297,7 +4297,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
         goto __pyx_L10;
       }
 
-      /* "vm.pyx":112
+      /* "intcode/vm.pyx":112
  *                     self.pointer = self.read(1)
  *                 else:
  *                     self.pointer += 3             # <<<<<<<<<<<<<<
@@ -4315,7 +4315,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       }
       __pyx_L10:;
 
-      /* "vm.pyx":107
+      /* "intcode/vm.pyx":107
  *                 return value
  * 
  *             elif opcode == 5:             # <<<<<<<<<<<<<<
@@ -4325,7 +4325,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       goto __pyx_L9;
     }
 
-    /* "vm.pyx":114
+    /* "intcode/vm.pyx":114
  *                     self.pointer += 3
  * 
  *             elif opcode == 6:             # <<<<<<<<<<<<<<
@@ -4338,7 +4338,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "vm.pyx":115
+      /* "intcode/vm.pyx":115
  * 
  *             elif opcode == 6:
  *                 value = self.read(0)             # <<<<<<<<<<<<<<
@@ -4365,7 +4365,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "vm.pyx":116
+      /* "intcode/vm.pyx":116
  *             elif opcode == 6:
  *                 value = self.read(0)
  *                 if value == 0:             # <<<<<<<<<<<<<<
@@ -4378,7 +4378,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (__pyx_t_2) {
 
-        /* "vm.pyx":117
+        /* "intcode/vm.pyx":117
  *                 value = self.read(0)
  *                 if value == 0:
  *                     self.pointer = self.read(1)             # <<<<<<<<<<<<<<
@@ -4405,7 +4405,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
         if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pointer, __pyx_t_3) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "vm.pyx":116
+        /* "intcode/vm.pyx":116
  *             elif opcode == 6:
  *                 value = self.read(0)
  *                 if value == 0:             # <<<<<<<<<<<<<<
@@ -4415,7 +4415,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
         goto __pyx_L11;
       }
 
-      /* "vm.pyx":119
+      /* "intcode/vm.pyx":119
  *                     self.pointer = self.read(1)
  *                 else:
  *                     self.pointer += 3             # <<<<<<<<<<<<<<
@@ -4433,7 +4433,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       }
       __pyx_L11:;
 
-      /* "vm.pyx":114
+      /* "intcode/vm.pyx":114
  *                     self.pointer += 3
  * 
  *             elif opcode == 6:             # <<<<<<<<<<<<<<
@@ -4443,7 +4443,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       goto __pyx_L9;
     }
 
-    /* "vm.pyx":121
+    /* "intcode/vm.pyx":121
  *                     self.pointer += 3
  * 
  *             elif opcode == 7:             # <<<<<<<<<<<<<<
@@ -4456,7 +4456,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_2) {
 
-      /* "vm.pyx":122
+      /* "intcode/vm.pyx":122
  * 
  *             elif opcode == 7:
  *                 self.write(2, 1 if self.read(0) < self.read(1) else 0)             # <<<<<<<<<<<<<<
@@ -4560,7 +4560,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "vm.pyx":123
+      /* "intcode/vm.pyx":123
  *             elif opcode == 7:
  *                 self.write(2, 1 if self.read(0) < self.read(1) else 0)
  *                 self.pointer += 4             # <<<<<<<<<<<<<<
@@ -4575,7 +4575,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pointer, __pyx_t_3) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "vm.pyx":121
+      /* "intcode/vm.pyx":121
  *                     self.pointer += 3
  * 
  *             elif opcode == 7:             # <<<<<<<<<<<<<<
@@ -4585,7 +4585,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       goto __pyx_L9;
     }
 
-    /* "vm.pyx":125
+    /* "intcode/vm.pyx":125
  *                 self.pointer += 4
  * 
  *             elif opcode == 8:             # <<<<<<<<<<<<<<
@@ -4598,7 +4598,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "vm.pyx":126
+      /* "intcode/vm.pyx":126
  * 
  *             elif opcode == 8:
  *                 self.write(2, 1 if self.read(0) == self.read(1) else 0)             # <<<<<<<<<<<<<<
@@ -4702,7 +4702,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "vm.pyx":127
+      /* "intcode/vm.pyx":127
  *             elif opcode == 8:
  *                 self.write(2, 1 if self.read(0) == self.read(1) else 0)
  *                 self.pointer += 4             # <<<<<<<<<<<<<<
@@ -4717,7 +4717,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pointer, __pyx_t_5) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "vm.pyx":125
+      /* "intcode/vm.pyx":125
  *                 self.pointer += 4
  * 
  *             elif opcode == 8:             # <<<<<<<<<<<<<<
@@ -4727,7 +4727,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       goto __pyx_L9;
     }
 
-    /* "vm.pyx":129
+    /* "intcode/vm.pyx":129
  *                 self.pointer += 4
  * 
  *             elif opcode == 9:             # <<<<<<<<<<<<<<
@@ -4740,7 +4740,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_2) {
 
-      /* "vm.pyx":130
+      /* "intcode/vm.pyx":130
  * 
  *             elif opcode == 9:
  *                 self.relative_base += self.read(0)             # <<<<<<<<<<<<<<
@@ -4773,7 +4773,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_relative_base, __pyx_t_9) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-      /* "vm.pyx":131
+      /* "intcode/vm.pyx":131
  *             elif opcode == 9:
  *                 self.relative_base += self.read(0)
  *                 self.pointer += 2             # <<<<<<<<<<<<<<
@@ -4788,7 +4788,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pointer, __pyx_t_3) < 0) __PYX_ERR(0, 131, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "vm.pyx":129
+      /* "intcode/vm.pyx":129
  *                 self.pointer += 4
  * 
  *             elif opcode == 9:             # <<<<<<<<<<<<<<
@@ -4798,7 +4798,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       goto __pyx_L9;
     }
 
-    /* "vm.pyx":133
+    /* "intcode/vm.pyx":133
  *                 self.pointer += 2
  * 
  *             elif opcode == 99:             # <<<<<<<<<<<<<<
@@ -4811,7 +4811,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (likely(__pyx_t_2)) {
 
-      /* "vm.pyx":134
+      /* "intcode/vm.pyx":134
  * 
  *             elif opcode == 99:
  *                 return             # <<<<<<<<<<<<<<
@@ -4822,7 +4822,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
       __pyx_r = Py_None; __Pyx_INCREF(Py_None);
       goto __pyx_L0;
 
-      /* "vm.pyx":133
+      /* "intcode/vm.pyx":133
  *                 self.pointer += 2
  * 
  *             elif opcode == 99:             # <<<<<<<<<<<<<<
@@ -4831,7 +4831,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
  */
     }
 
-    /* "vm.pyx":137
+    /* "intcode/vm.pyx":137
  * 
  *             else:
  *                 raise Exception("Unexpected op code: {}".format(opcode))             # <<<<<<<<<<<<<<
@@ -4866,7 +4866,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
     __pyx_L9:;
   }
 
-  /* "vm.pyx":78
+  /* "intcode/vm.pyx":78
  *         self.D[self.args[loc] + self.relative_base] = value
  * 
  *     def run(self, input_=None):             # <<<<<<<<<<<<<<
@@ -4885,7 +4885,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("vm.IntcodeVM.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_counter);
@@ -4896,7 +4896,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
   return __pyx_r;
 }
 
-/* "vm.pyx":139
+/* "intcode/vm.pyx":139
  *                 raise Exception("Unexpected op code: {}".format(opcode))
  * 
  *     def collect_all_outputs(self):             # <<<<<<<<<<<<<<
@@ -4905,20 +4905,20 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_12run(CYTHON_UNUSED PyObject *__pyx_sel
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2vm_9IntcodeVM_15collect_all_outputs(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_2vm_9IntcodeVM_15collect_all_outputs = {"collect_all_outputs", (PyCFunction)__pyx_pw_2vm_9IntcodeVM_15collect_all_outputs, METH_O, 0};
-static PyObject *__pyx_pw_2vm_9IntcodeVM_15collect_all_outputs(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_15collect_all_outputs(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_7intcode_2vm_9IntcodeVM_15collect_all_outputs = {"collect_all_outputs", (PyCFunction)__pyx_pw_7intcode_2vm_9IntcodeVM_15collect_all_outputs, METH_O, 0};
+static PyObject *__pyx_pw_7intcode_2vm_9IntcodeVM_15collect_all_outputs(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("collect_all_outputs (wrapper)", 0);
-  __pyx_r = __pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_7intcode_2vm_9IntcodeVM_14collect_all_outputs(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_7intcode_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_outputs = NULL;
   PyObject *__pyx_v_out = NULL;
   PyObject *__pyx_r = NULL;
@@ -4931,7 +4931,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyO
   int __pyx_t_6;
   __Pyx_RefNannySetupContext("collect_all_outputs", 0);
 
-  /* "vm.pyx":140
+  /* "intcode/vm.pyx":140
  * 
  *     def collect_all_outputs(self):
  *         outputs = []             # <<<<<<<<<<<<<<
@@ -4943,7 +4943,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyO
   __pyx_v_outputs = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "vm.pyx":141
+  /* "intcode/vm.pyx":141
  *     def collect_all_outputs(self):
  *         outputs = []
  *         while True:             # <<<<<<<<<<<<<<
@@ -4952,7 +4952,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyO
  */
   while (1) {
 
-    /* "vm.pyx":142
+    /* "intcode/vm.pyx":142
  *         outputs = []
  *         while True:
  *             out = self.run()             # <<<<<<<<<<<<<<
@@ -4979,7 +4979,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyO
     __Pyx_XDECREF_SET(__pyx_v_out, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "vm.pyx":143
+    /* "intcode/vm.pyx":143
  *         while True:
  *             out = self.run()
  *             if out is None:             # <<<<<<<<<<<<<<
@@ -4990,7 +4990,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyO
     __pyx_t_5 = (__pyx_t_4 != 0);
     if (__pyx_t_5) {
 
-      /* "vm.pyx":144
+      /* "intcode/vm.pyx":144
  *             out = self.run()
  *             if out is None:
  *                 break             # <<<<<<<<<<<<<<
@@ -4999,7 +4999,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyO
  */
       goto __pyx_L4_break;
 
-      /* "vm.pyx":143
+      /* "intcode/vm.pyx":143
  *         while True:
  *             out = self.run()
  *             if out is None:             # <<<<<<<<<<<<<<
@@ -5008,7 +5008,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyO
  */
     }
 
-    /* "vm.pyx":145
+    /* "intcode/vm.pyx":145
  *             if out is None:
  *                 break
  *             outputs.append(out)             # <<<<<<<<<<<<<<
@@ -5018,7 +5018,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyO
   }
   __pyx_L4_break:;
 
-  /* "vm.pyx":146
+  /* "intcode/vm.pyx":146
  *                 break
  *             outputs.append(out)
  *         return outputs             # <<<<<<<<<<<<<<
@@ -5028,7 +5028,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyO
   __pyx_r = __pyx_v_outputs;
   goto __pyx_L0;
 
-  /* "vm.pyx":139
+  /* "intcode/vm.pyx":139
  *                 raise Exception("Unexpected op code: {}".format(opcode))
  * 
  *     def collect_all_outputs(self):             # <<<<<<<<<<<<<<
@@ -5041,7 +5041,7 @@ static PyObject *__pyx_pf_2vm_9IntcodeVM_14collect_all_outputs(CYTHON_UNUSED PyO
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("vm.IntcodeVM.collect_all_outputs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("intcode.vm.IntcodeVM.collect_all_outputs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_outputs);
@@ -5128,6 +5128,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_init, __pyx_k_init, sizeof(__pyx_k_init), 0, 0, 1, 1},
   {&__pyx_n_s_input, __pyx_k_input, sizeof(__pyx_k_input), 0, 0, 1, 1},
   {&__pyx_n_s_input_2, __pyx_k_input_2, sizeof(__pyx_k_input_2), 0, 0, 1, 1},
+  {&__pyx_n_s_intcode_vm, __pyx_k_intcode_vm, sizeof(__pyx_k_intcode_vm), 0, 0, 1, 1},
   {&__pyx_n_s_items, __pyx_k_items, sizeof(__pyx_k_items), 0, 0, 1, 1},
   {&__pyx_n_s_k, __pyx_k_k, sizeof(__pyx_k_k), 0, 0, 1, 1},
   {&__pyx_n_s_loc, __pyx_k_loc, sizeof(__pyx_k_loc), 0, 0, 1, 1},
@@ -5158,7 +5159,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_v, __pyx_k_v, sizeof(__pyx_k_v), 0, 0, 1, 1},
   {&__pyx_n_s_value, __pyx_k_value, sizeof(__pyx_k_value), 0, 0, 1, 1},
-  {&__pyx_n_s_vm, __pyx_k_vm, sizeof(__pyx_k_vm), 0, 0, 1, 1},
   {&__pyx_kp_s_vm_pyx, __pyx_k_vm_pyx, sizeof(__pyx_k_vm_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_write, __pyx_k_write, sizeof(__pyx_k_write), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
@@ -5179,7 +5179,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "vm.pyx":75
+  /* "intcode/vm.pyx":75
  *             self.D[self.args[loc]] = value
  *         if mode == 1:
  *             raise Exception("Tried to write in mode 1!")             # <<<<<<<<<<<<<<
@@ -5190,7 +5190,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "vm.pyx":4
+  /* "intcode/vm.pyx":4
  * 
  * 
  * class IntcodeVM(object):             # <<<<<<<<<<<<<<
@@ -5201,7 +5201,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "vm.pyx":5
+  /* "intcode/vm.pyx":5
  * 
  * class IntcodeVM(object):
  *     def __init__(             # <<<<<<<<<<<<<<
@@ -5216,7 +5216,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "vm.pyx":29
+  /* "intcode/vm.pyx":29
  * 
  *     @property
  *     def D_list(self):             # <<<<<<<<<<<<<<
@@ -5228,7 +5228,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__6);
   __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_vm_pyx, __pyx_n_s_D_list, 29, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 29, __pyx_L1_error)
 
-  /* "vm.pyx":33
+  /* "intcode/vm.pyx":33
  *         return [self.D[i] for i in range(max(self.D) + 1)]
  * 
  *     def get_input(self):             # <<<<<<<<<<<<<<
@@ -5240,7 +5240,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__8);
   __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_vm_pyx, __pyx_n_s_get_input, 33, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 33, __pyx_L1_error)
 
-  /* "vm.pyx":42
+  /* "intcode/vm.pyx":42
  *         return self.input
  * 
  *     def prep_instruction(self):             # <<<<<<<<<<<<<<
@@ -5252,7 +5252,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__10);
   __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_vm_pyx, __pyx_n_s_prep_instruction, 42, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 42, __pyx_L1_error)
 
-  /* "vm.pyx":57
+  /* "intcode/vm.pyx":57
  *         return opcode
  * 
  *     def read(self, loc):             # <<<<<<<<<<<<<<
@@ -5264,7 +5264,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__12);
   __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_vm_pyx, __pyx_n_s_read, 57, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 57, __pyx_L1_error)
 
-  /* "vm.pyx":70
+  /* "intcode/vm.pyx":70
  *         return self.D.get(value + self.relative_base, 0)
  * 
  *     def write(self, loc, value):             # <<<<<<<<<<<<<<
@@ -5276,7 +5276,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__14);
   __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_vm_pyx, __pyx_n_s_write, 70, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 70, __pyx_L1_error)
 
-  /* "vm.pyx":78
+  /* "intcode/vm.pyx":78
  *         self.D[self.args[loc] + self.relative_base] = value
  * 
  *     def run(self, input_=None):             # <<<<<<<<<<<<<<
@@ -5291,7 +5291,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
 
-  /* "vm.pyx":139
+  /* "intcode/vm.pyx":139
  *                 raise Exception("Unexpected op code: {}".format(opcode))
  * 
  *     def collect_all_outputs(self):             # <<<<<<<<<<<<<<
@@ -5567,14 +5567,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_vm) {
+  if (__pyx_module_is_main_intcode__vm) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "vm")) {
-      if (unlikely(PyDict_SetItemString(modules, "vm", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "intcode.vm")) {
+      if (unlikely(PyDict_SetItemString(modules, "intcode.vm", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -5595,7 +5595,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "vm.pyx":1
+  /* "intcode/vm.pyx":1
  * from collections import deque             # <<<<<<<<<<<<<<
  * 
  * 
@@ -5614,7 +5614,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "vm.pyx":4
+  /* "intcode/vm.pyx":4
  * 
  * 
  * class IntcodeVM(object):             # <<<<<<<<<<<<<<
@@ -5623,33 +5623,33 @@ if (!__Pyx_RefNanny) {
  */
   __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_tuple__2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_tuple__2, __pyx_n_s_IntcodeVM, __pyx_n_s_IntcodeVM, (PyObject *) NULL, __pyx_n_s_vm, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_tuple__2, __pyx_n_s_IntcodeVM, __pyx_n_s_IntcodeVM, (PyObject *) NULL, __pyx_n_s_intcode_vm, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "vm.pyx":5
+  /* "intcode/vm.pyx":5
  * 
  * class IntcodeVM(object):
  *     def __init__(             # <<<<<<<<<<<<<<
  *         self, D, input_=None, mutate_input=None, max_timeout=None, default_input=None
  *     ):
  */
-  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_2vm_9IntcodeVM_1__init__, 0, __pyx_n_s_IntcodeVM___init, NULL, __pyx_n_s_vm, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7intcode_2vm_9IntcodeVM_1__init__, 0, __pyx_n_s_IntcodeVM___init, NULL, __pyx_n_s_intcode_vm, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_tuple__5);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_init, __pyx_t_3) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "vm.pyx":29
+  /* "intcode/vm.pyx":29
  * 
  *     @property
  *     def D_list(self):             # <<<<<<<<<<<<<<
  *         # Useful for tests
  *         return [self.D[i] for i in range(max(self.D) + 1)]
  */
-  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_2vm_9IntcodeVM_3D_list, 0, __pyx_n_s_IntcodeVM_D_list, NULL, __pyx_n_s_vm, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7intcode_2vm_9IntcodeVM_3D_list, 0, __pyx_n_s_IntcodeVM_D_list, NULL, __pyx_n_s_intcode_vm, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "vm.pyx":28
+  /* "intcode/vm.pyx":28
  *         self.modes = None
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -5662,80 +5662,80 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_D_list, __pyx_t_4) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "vm.pyx":33
+  /* "intcode/vm.pyx":33
  *         return [self.D[i] for i in range(max(self.D) + 1)]
  * 
  *     def get_input(self):             # <<<<<<<<<<<<<<
  *         if isinstance(self.input, deque):
  *             try:
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_2vm_9IntcodeVM_5get_input, 0, __pyx_n_s_IntcodeVM_get_input, NULL, __pyx_n_s_vm, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7intcode_2vm_9IntcodeVM_5get_input, 0, __pyx_n_s_IntcodeVM_get_input, NULL, __pyx_n_s_intcode_vm, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_get_input, __pyx_t_4) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "vm.pyx":42
+  /* "intcode/vm.pyx":42
  *         return self.input
  * 
  *     def prep_instruction(self):             # <<<<<<<<<<<<<<
  *         i = self.D.get(self.pointer, 0)
  *         opcode = i % 100
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_2vm_9IntcodeVM_7prep_instruction, 0, __pyx_n_s_IntcodeVM_prep_instruction, NULL, __pyx_n_s_vm, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7intcode_2vm_9IntcodeVM_7prep_instruction, 0, __pyx_n_s_IntcodeVM_prep_instruction, NULL, __pyx_n_s_intcode_vm, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_prep_instruction, __pyx_t_4) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "vm.pyx":57
+  /* "intcode/vm.pyx":57
  *         return opcode
  * 
  *     def read(self, loc):             # <<<<<<<<<<<<<<
  *         try:
  *             value = self.args[loc]
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_2vm_9IntcodeVM_9read, 0, __pyx_n_s_IntcodeVM_read, NULL, __pyx_n_s_vm, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7intcode_2vm_9IntcodeVM_9read, 0, __pyx_n_s_IntcodeVM_read, NULL, __pyx_n_s_intcode_vm, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_read, __pyx_t_4) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "vm.pyx":70
+  /* "intcode/vm.pyx":70
  *         return self.D.get(value + self.relative_base, 0)
  * 
  *     def write(self, loc, value):             # <<<<<<<<<<<<<<
  *         mode = self.modes[loc]
  *         if mode == 0:
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_2vm_9IntcodeVM_11write, 0, __pyx_n_s_IntcodeVM_write, NULL, __pyx_n_s_vm, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7intcode_2vm_9IntcodeVM_11write, 0, __pyx_n_s_IntcodeVM_write, NULL, __pyx_n_s_intcode_vm, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_write, __pyx_t_4) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "vm.pyx":78
+  /* "intcode/vm.pyx":78
  *         self.D[self.args[loc] + self.relative_base] = value
  * 
  *     def run(self, input_=None):             # <<<<<<<<<<<<<<
  *         if input_ is not None:
  *             self.input = input_
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_2vm_9IntcodeVM_13run, 0, __pyx_n_s_IntcodeVM_run, NULL, __pyx_n_s_vm, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7intcode_2vm_9IntcodeVM_13run, 0, __pyx_n_s_IntcodeVM_run, NULL, __pyx_n_s_intcode_vm, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_tuple__18);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_run, __pyx_t_4) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "vm.pyx":139
+  /* "intcode/vm.pyx":139
  *                 raise Exception("Unexpected op code: {}".format(opcode))
  * 
  *     def collect_all_outputs(self):             # <<<<<<<<<<<<<<
  *         outputs = []
  *         while True:
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_2vm_9IntcodeVM_15collect_all_outputs, 0, __pyx_n_s_IntcodeVM_collect_all_outputs, NULL, __pyx_n_s_vm, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7intcode_2vm_9IntcodeVM_15collect_all_outputs, 0, __pyx_n_s_IntcodeVM_collect_all_outputs, NULL, __pyx_n_s_intcode_vm, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_collect_all_outputs, __pyx_t_4) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "vm.pyx":4
+  /* "intcode/vm.pyx":4
  * 
  * 
  * class IntcodeVM(object):             # <<<<<<<<<<<<<<
@@ -5749,7 +5749,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "vm.pyx":1
+  /* "intcode/vm.pyx":1
  * from collections import deque             # <<<<<<<<<<<<<<
  * 
  * 
@@ -5769,11 +5769,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_4);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init vm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init intcode.vm", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init vm");
+    PyErr_SetString(PyExc_ImportError, "init intcode.vm");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

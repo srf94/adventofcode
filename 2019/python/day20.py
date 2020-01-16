@@ -47,7 +47,7 @@ def parse_gates(grid_dict):
 
         for loc, direction in product([letter_loc, letter_loc_2], range(4)):
             adjacent_loc = add_direction(loc, direction)
-            if grid_dict.get(adjacent_loc) == '.':
+            if grid_dict.get(adjacent_loc) == ".":
                 gates.append(gate(pair, adjacent_loc, get_reverse(direction)))
                 break
 
@@ -57,9 +57,9 @@ def parse_gates(grid_dict):
 def pair_gates(gates):
     gate_pairs = defaultdict(list)
     for pair, adjacent_loc, adjacent_direction in gates:
-        if pair == ('A', 'A'):
+        if pair == ("A", "A"):
             start = adjacent_loc
-        elif pair == ('Z', 'Z'):
+        elif pair == ("Z", "Z"):
             end = adjacent_loc
         else:
             gate_pairs[pair].append((adjacent_loc, adjacent_direction))

@@ -15,7 +15,7 @@ class Planet:
 
 
 def input_to_tuple(string):
-    return tuple(int(i.split('=')[1]) for i in string.strip('<>').split(','))
+    return tuple(int(i.split("=")[1]) for i in string.strip("<>").split(","))
 
 
 def run_step(planets):
@@ -48,7 +48,7 @@ print(int(sum(p.energy() for p in planets_3d)))
 
 def gcd(a, b):
     while b:
-        a, b = b, a%b
+        a, b = b, a % b
     return a
 
 
@@ -58,7 +58,7 @@ def lcm(nums):
         b = nums.pop()
     else:
         b = lcm(nums)
-    return a*b / gcd(a, b)
+    return a * b / gcd(a, b)
 
 
 steps_to_repeat = []

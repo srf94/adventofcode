@@ -64,14 +64,7 @@ D=1 AND (A=0 OR B=0 OR C=0)
 """
 
 
-part_1_instructions = [
-    "NOT A T",
-    "NOT B J",
-    "OR T J",
-    "NOT C T",
-    "OR T J",
-    "AND D J",
-]
+part_1_instructions = ["NOT A T", "NOT B J", "OR T J", "NOT C T", "OR T J", "AND D J"]
 attempt(part_1_instructions, 1)
 
 

@@ -2,9 +2,7 @@ from distutils.core import setup
 from Cython.Build import cythonize
 
 
-# Run:
+# Build with:
 # python setup.py build_ext --inplace
 
-setup(
-    ext_modules = cythonize("vm.pyx")
-)
+setup(ext_modules=cythonize("vm.pyx"))

@@ -15,7 +15,7 @@ for num_int in range(lower, upper + 1):
         part_1_total += 1
 
     # Pad number to simplify indexing
-    p = 'p{}p'.format(num)
+    p = "p{}p".format(num)
     run_of_two = False
     for i in range(1, 6):
         if p[i - 1] != p[i] and p[i] == p[i + 1] and p[i + 1] != p[i + 2]:

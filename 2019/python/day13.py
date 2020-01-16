@@ -7,13 +7,7 @@ def draw_board(tiles):
     tiles = copy.copy(tiles)
     for tile in tiles:
         for loc in range(len(tile)):
-            tile[loc] = (
-                str(tile[loc])
-                .replace("0", " ")
-                .replace("2", "B")
-                .replace("3", "_")
-                .replace("4", "O")
-            )
+            tile[loc] = str(tile[loc]).replace("0", " ").replace("2", "B").replace("3", "_").replace("4", "O")
 
     print("\n".join("".join(str(i) for i in tile) for tile in tiles))
 

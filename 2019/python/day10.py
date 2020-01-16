@@ -6,7 +6,7 @@ from collections import defaultdict
 
 def gcd(a, b):
     while b:
-        a, b = b, a%b
+        a, b = b, a % b
     return a
 
 
@@ -14,13 +14,13 @@ def get_direction(pos_1, pos_2):
     x = pos_2[0] - pos_1[0]
     y = pos_2[1] - pos_1[1]
     gcd_ = abs(gcd(x, y))
-    return x/gcd_, y/gcd_
+    return x / gcd_, y / gcd_
 
 
 def get_angle(x, y):
     angle = math.atan2(x, -y)
     if angle < 0:
-        angle += 2*math.pi
+        angle += 2 * math.pi
     return angle
 
 
@@ -29,7 +29,7 @@ def get_distance(pos_1, pos_2):
 
 
 data = read_data(10)
-asteroids = {(x, y) for x, y in product(range(len(data[0])), range(len(data))) if data[y][x] == '#'}
+asteroids = {(x, y) for x, y in product(range(len(data[0])), range(len(data))) if data[y][x] == "#"}
 
 
 visible = {}
@@ -52,9 +52,7 @@ for asteroid in asteroids:
     direction_groups[vector].append(asteroid)
 
 
-ordered_vectors = sorted([
-    vector for vector in direction_groups.keys()
-], key=lambda x: get_angle(*x))
+ordered_vectors = sorted([vector for vector in direction_groups.keys()], key=lambda x: get_angle(*x))
 
 
 count = 0

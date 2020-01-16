@@ -4,7 +4,6 @@ from itertools import combinations
 from intcode.vm import IntcodeVM
 
 
-
 raw = read_data(25)[0].split(",")
 vm = IntcodeVM(raw)
 
@@ -65,16 +64,7 @@ cc("north")
 cc("inv")
 
 
-items = [
-    "prime number",
-    "candy cane",
-    "loom",
-    "asterisk",
-    "food ration",
-    "boulder",
-    "mutex",
-    "mug",
-]
+items = ["prime number", "candy cane", "loom", "asterisk", "food ration", "boulder", "mutex", "mug"]
 
 
 finished = False

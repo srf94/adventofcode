@@ -25,4 +25,4 @@ for layer in array[1:]:
 
 
 print("Part 2:")
-print('\n'.join(''.join(np.where(row, '0', ' ')) for row in output))
+print("\n".join("".join(np.where(row, "0", " ")) for row in output))

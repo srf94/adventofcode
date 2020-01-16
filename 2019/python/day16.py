@@ -8,7 +8,7 @@ def get_base_pattern_expanded(base, repeat, data_shape):
     num_copies = 1 + (data_shape // len(expanded))
     full = [i for _ in range(num_copies) for i in expanded]
 
-    return np.array(full[1: data_shape+1], dtype=int)
+    return np.array(full[1 : data_shape + 1], dtype=int)
 
 
 def create_matrix(input_signal, base_pattern):
@@ -16,7 +16,7 @@ def create_matrix(input_signal, base_pattern):
     m = np.zeros((dim, dim), dtype=int)
 
     for loc in range(input_signal.shape[0]):
-        pattern = get_base_pattern_expanded(base_pattern, loc+1, dim)
+        pattern = get_base_pattern_expanded(base_pattern, loc + 1, dim)
         m[loc] = np.array(pattern)
 
     return m
@@ -28,7 +28,7 @@ def get_raw_from_offset(size, raw):
     assert 0.5 * raw_len < offset
 
     num_copies = size - offset // raw_len - 1
-    tail_raw = offset - (offset // raw_len)*raw_len
+    tail_raw = offset - (offset // raw_len) * raw_len
 
     full = raw[tail_raw:]
     for _ in range(num_copies):

@@ -35,8 +35,8 @@ def run_opcode(data, noun, verb):
 
 
 # Original solution
-print ("Part 1:")
-print (run_opcode(raw, 12, 2))
+print("Part 1:")
+print(run_opcode(raw, 12, 2))
 
 
 for noun, verb in itertools.product(range(100), range(100)):
@@ -51,8 +51,8 @@ for noun, verb in itertools.product(range(100), range(100)):
 # Later solved using full intcode VM
 vm = IntcodeVM(raw, mutate_input={1: 12, 2: 2})
 vm.run()
-print ("Part 1 (using full intcode vm):")
-print (vm.D[0])
+print("Part 1 (using full intcode vm):")
+print(vm.D[0])
 
 
 for noun, verb in itertools.product(range(100), range(100)):
@@ -61,6 +61,6 @@ for noun, verb in itertools.product(range(100), range(100)):
     result = vm.D[0]
 
     if int(result) == 19690720:
-        print ("Part 2 (using full intcode vm):")
-        print (100 * noun + verb)
+        print("Part 2 (using full intcode vm):")
+        print(100 * noun + verb)
         break

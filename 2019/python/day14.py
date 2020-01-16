@@ -5,28 +5,28 @@ from utils import read_data
 def make_dependency_graph(raw):
     dependency = {}
     for line in raw:
-        ing, makes = line.split('=')
-        q, name = makes.strip('>').strip().split(' ')
+        ing, makes = line.split("=")
+        q, name = makes.strip(">").strip().split(" ")
 
         i = {}
-        for k in ing.split(','):
-            qq, ii = k.strip().split(' ')
+        for k in ing.split(","):
+            qq, ii = k.strip().split(" ")
             i[ii] = int(qq)
 
         assert name not in dependency
-        dependency[name] = {'q': int(q.strip()), 'i': i}
+        dependency[name] = {"q": int(q.strip()), "i": i}
     return dependency
 
 
 def parse_graph(dependency_graph, part):
-    needed = {'FUEL': 1}
+    needed = {"FUEL": 1}
     keys_remaining = set(dependency_graph.keys())
 
     while True:
         for key in keys_remaining:
             bad = False
             for k in keys_remaining:
-                if key in dependency_graph[k]['i'].keys():
+                if key in dependency_graph[k]["i"].keys():
                     bad = True
                     break
             if not bad:
@@ -41,25 +41,25 @@ def parse_graph(dependency_graph, part):
         if dep is None:
             continue
 
-        quantity = need / float(dep['q'])
+        quantity = need / float(dep["q"])
         if part == 1:
             quantity = int(ceil(quantity))
 
-        for k, v in dep['i'].items():
+        for k, v in dep["i"].items():
             needed[k] = needed.get(k, 0) + quantity * v
 
     return needed
 
 
 def total_ore_needed(dependency_graph, needed):
-    ore_touching = {k for k, v in dependency_graph.items() if 'ORE' in v['i']}
+    ore_touching = {k for k, v in dependency_graph.items() if "ORE" in v["i"]}
 
     ore = 0
     for key in ore_touching:
         need = needed[key]
         dep = dependency_graph[key]
-        quantity = need / float(dep['q'])
-        ore += quantity * dep['i']['ORE']
+        quantity = need / float(dep["q"])
+        ore += quantity * dep["i"]["ORE"]
     return ore
 
 

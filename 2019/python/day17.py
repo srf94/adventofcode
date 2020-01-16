@@ -44,12 +44,7 @@ def get_grid(raw):
 
 
 def part_1(grid):
-    scaffolding = {
-        (x, y)
-        for y, row in enumerate(grid)
-        for x, value in enumerate(row)
-        if value == "#"
-    }
+    scaffolding = {(x, y) for y, row in enumerate(grid) for x, value in enumerate(row) if value == "#"}
 
     total = 0
     for position in scaffolding:

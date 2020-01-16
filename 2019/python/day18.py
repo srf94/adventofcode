@@ -101,7 +101,7 @@ def create_dependency_graph(grid_dict, start):
 
 
 def intermediate_symbols(path, key):
-    return set(p.symbol for p in path if p.symbol not in ['.', key])
+    return set(p.symbol for p in path if p.symbol not in [".", key])
 
 
 def calculate_distances_and_intermediates(paths_from_origin):
@@ -136,8 +136,8 @@ def calculate_distances_and_intermediates(paths_from_origin):
                     distance = d
                     used_overlap = overlap
 
-            intermediate = intermediate_symbols(p1[p1_locs.index(used_overlap):], k1).union(
-                intermediate_symbols(p2[p2_locs.index(used_overlap):], k2)
+            intermediate = intermediate_symbols(p1[p1_locs.index(used_overlap) :], k1).union(
+                intermediate_symbols(p2[p2_locs.index(used_overlap) :], k2)
             )
 
         distances[k1, k2] = distance
@@ -156,9 +156,7 @@ def calculate_distances_and_intermediates(paths_from_origin):
 
 
 def edit_grid(grid, start):
-    delta = [
-        (0, 0), (0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1),
-    ]
+    delta = [(0, 0), (0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
     for dx, dy in delta:
         loc = (start[0] + dx, start[1] + dy)
         if abs(dx) + abs(dy) == 2:
@@ -193,15 +191,13 @@ def part_2(raw):
         nodes_to_visit = []
         for graph, intermediate, node in zip(graphs, intermediates, nodes):
             seen_upper = {i.upper() for i in seen}
-            new_graph_no_doors = {
-                k: [i for i in v if i not in seen_upper]
-                for k, v in graph.items()
-            }
+            new_graph_no_doors = {k: [i for i in v if i not in seen_upper] for k, v in graph.items()}
             new_nodes = [
-                k for k, v in new_graph_no_doors.items()
-                if k not in seen and
-                all(i.lower() in seen for i in v) and
-                not any(i.islower() and i not in seen for i in intermediate[node, k])
+                k
+                for k, v in new_graph_no_doors.items()
+                if k not in seen
+                and all(i.lower() in seen for i in v)
+                and not any(i.islower() and i not in seen for i in intermediate[node, k])
             ]
             nodes_to_visit.append(new_nodes)
 

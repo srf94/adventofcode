@@ -34,7 +34,7 @@ def brute_force(data, N):
 
 def gcd(a, b):
     while b:
-        a, b = b, a%b
+        a, b = b, a % b
     return a
 
 
@@ -68,8 +68,8 @@ def raise_to_power(base, power, modulo):
     power_dict = {1: base}
 
     for i in range(1, int(math.ceil(math.log(power, 2) + 1))):
-        prev = power_dict[2 ** (i-1)]
-        power_dict[2**i] = (prev * prev) % modulo
+        prev = power_dict[2 ** (i - 1)]
+        power_dict[2 ** i] = (prev * prev) % modulo
 
     val = 1
     x = power
@@ -97,7 +97,7 @@ def track_position(data, N, pos):
 
     for row in data:
         if row == "deal into new stack":
-            pos = -pos-1
+            pos = -pos - 1
 
         elif row.startswith("cut"):
             cut = int(row[4:])
@@ -124,7 +124,7 @@ def track_position_reverse(data, N, pos):
     for row in reversed(data):
         if row == "deal into new stack":
             # Reverse ordering
-            pos = -pos-1
+            pos = -pos - 1
 
         elif row.startswith("cut"):
             cut = int(row[4:])
