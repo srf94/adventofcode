@@ -42,4 +42,4 @@ cross = [abs(x) + abs(y) for x, y in crossover]
 print(min(cross))
 
 print("Part 2:")
-print min([steps_1[i] + steps_2[i] for i in crossover])
+print(min([steps_1[i] + steps_2[i] for i in crossover]))

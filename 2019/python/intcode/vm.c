@@ -3,11 +3,11 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "name": "vm",
+        "name": "vm", 
         "sources": [
             "vm.pyx"
         ]
-    },
+    }, 
     "module_name": "vm"
 }
 END: Cython Metadata */

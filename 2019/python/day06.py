@@ -7,7 +7,6 @@ orbit_graph = {orbiter: orbited for orbited, orbiter in data}
 
 
 def get_child_orbits(graph_dict, node):
-    print("Getting orbit for node {}".format(node))
     try:
         return 1 + graph_dict[node]
     except KeyError:
